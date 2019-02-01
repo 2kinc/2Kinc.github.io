@@ -1,19 +1,75 @@
 <!doctype html>
 <html>
-  <head>
-    <title>2K inc.</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="alpha2klogo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <meta name="keywords" content="2k, 2k inc, 2k inc., 2K, 2K inc., games, 2d games, 2D games, exp, exp game, trick or treat, kalkulator, calculator, fidget, fidget tab, calc, jumping joe, a small planet, small planet">
-    <meta name="description" content="2K inc. is a fun company that makes games for your pleasure. Check out our new game, E. X. P.">
-  </head>
-  <body>
-    
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script>
-      
-    </script>
-  </body>
+    <head>
+        <title>2K inc.</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="alpha2klogo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+        <meta name="keywords" content="2k, 2k inc, 2k inc., 2K, 2K inc., games, 2d games, 2D games, exp, exp game, trick or treat, kalkulator, calculator, fidget, fidget tab, calc, jumping joe, a small planet, small planet">
+        <meta name="description" content="2K inc. is a fun company that makes games for your pleasure. Check out our new game, E. X. P.">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto">
+        <style>
+            .mdc-top-app-bar--fixed {
+                top: 0;
+                width: 100%;
+                position: fixed;
+                padding: 0;
+                margin: 0;
+                left: 0;
+            }
+
+            body {
+                --mdc-theme-primary:#111; --mdc-them-secondary:#fff; }
+        </style>
+    </head>
+    <body>
+        <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+            <div class="mdc-top-app-bar__row">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                    <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+                    <span class="mdc-top-app-bar__title">2K inc</span>
+                </section>
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                    <div class="mdc-tab-bar" role="tablist">
+                        <div class="mdc-tab-scroller">
+                            <div class="mdc-tab-scroller__scroll-area">
+                                <div class="mdc-tab-scroller__scroll-content">
+                                    <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"style="color:white;">Home</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style="background:white;"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"style="color:white;">Games</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style="background:white;"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"style="color:white;">About</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style="background:white;"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </header>
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'))</script>
+    </body>
 </html>
