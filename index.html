@@ -19,18 +19,17 @@
                 left: 0;
             }
 
-            body {
-                --mdc-theme-primary:#111; --mdc-them-secondary:#fff; }
+            body {--mdc-theme-primary:#111; --mdc-them-secondary:#fff;font-family:'Roboto', sans-serif;}
         </style>
     </head>
     <body>
-        <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+        <header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z3">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                     <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
                     <span class="mdc-top-app-bar__title">2K inc</span>
                 </section>
-                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+                <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="height: 100%;bottom: 0;">
                     <div class="mdc-tab-bar" role="tablist">
                         <div class="mdc-tab-scroller">
                             <div class="mdc-tab-scroller__scroll-area">
@@ -69,6 +68,63 @@
                 </section>
             </div>
         </header>
+		<div id="home">
+		<br><br><br>
+			<h2 class="mdc-typography--headline5">2K inc</h2>
+			<p>A company making games for your pleasure.</p>
+            
+        </div>
+		<div id="game">
+		<div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell">
+                        <div class="mdc-card demo-card" style="width:100%;display:inline-block;">
+                            <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                                <div class="demo-card__primary" style="padding-left:15px;">
+                                    <h2 class="demo-card__title mdc-typography--body1">E.X.P.</h2>
+                                </div>
+                                <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">The game about the struggle to survive in a strange world. Warning: contains flashing effects.</div>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <a class="mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded" href="https://2kinc.github.io/exp-game/">Visit Here (Pre-Alpha)</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="mdc-layout-grid__cell">
+						<div class="mdc-card demo-card" style="width:100%;display:inline-block;">
+                            <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                                <div class="demo-card__primary" style="padding-left:15px;">
+                                    <h2 class="demo-card__title mdc-typography--body1">Trick or treat</h2>
+                                </div>
+                                <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">Go trick or treating whenever you want on your computer!</div><br>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <a class="mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded" href="https://chrome.google.com/webstore/detail/trick-or-treat/migjjgahlnpolhmacicegfjdpbbnhngc">Over HERE</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="mdc-layout-grid__cell">
+						<div class="mdc-card demo-card" style="width:100%;display:inline-block;">
+                            <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                                <div class="demo-card__primary" style="padding-left:15px;">
+                                    <h2 class="demo-card__title mdc-typography--body1">Kalkulator</h2>
+                                </div>
+                                <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">A calculator whenever you need one!</div><br>
+                            </div>
+                            <div class="mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <a class="mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded" href="https://chrome.google.com/webstore/detail/kalkulator/ilidgdcdnofmfpmkmbhoemmdmgkjgfcb">Get it.</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
         <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'))</script>
     </body>
