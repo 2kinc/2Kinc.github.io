@@ -26,7 +26,6 @@
         <header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z3">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                    <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
                     <span class="mdc-top-app-bar__title">2K inc</span>
                 </section>
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="height: 100%;bottom: 0;">
@@ -34,7 +33,7 @@
                         <div class="mdc-tab-scroller">
                             <div class="mdc-tab-scroller__scroll-area">
                                 <div class="mdc-tab-scroller__scroll-content">
-                                    <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                                    <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0" id="home-button">
                                         <span class="mdc-tab__content">
                                             <span class="mdc-tab__text-label"style="color:white;">Home</span>
                                         </span>
@@ -43,7 +42,7 @@
                                         </span>
                                         <span class="mdc-tab__ripple"></span>
                                     </button>
-									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0">
+									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="game-button">
                                         <span class="mdc-tab__content">
                                             <span class="mdc-tab__text-label"style="color:white;">Games</span>
                                         </span>
@@ -52,7 +51,7 @@
                                         </span>
                                         <span class="mdc-tab__ripple"></span>
                                     </button>
-									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0">
+									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="about-button">
                                         <span class="mdc-tab__content">
                                             <span class="mdc-tab__text-label"style="color:white;">About</span>
                                         </span>
@@ -74,7 +73,8 @@
 			<p>A company making games for your pleasure.</p>
             
         </div>
-		<div id="game">
+		<div id="game" style="display:none;">
+		<br><br><br><h2 class="mdc-typography--headline5">Games we have made</h2>
 		<div class="mdc-layout-grid">
                 <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell">
@@ -125,7 +125,24 @@
                 </div>
             </div>
 		</div>
+		<div id="about" style="display:none;"><br><br><br><h2 class="mdc-typography--headline5">About us</h2></div>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-        <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'))</script>
+        <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'));
+		document.querySelector("#home-button").addEventListener('click', function() {
+			document.querySelector('#home').style.display="block";
+			document.querySelector('#game').style.display="none";
+			document.querySelector('#about').style.display="none";
+		});
+		document.querySelector("#game-button").addEventListener('click', function() {
+			document.querySelector('#home').style.display="none";
+			document.querySelector('#game').style.display="block";
+			document.querySelector('#about').style.display="none";
+		});
+		document.querySelector("#about-button").addEventListener('click', function() {
+			document.querySelector('#home').style.display="none";
+			document.querySelector('#game').style.display="none";
+			document.querySelector('#about').style.display="block";
+		});
+		</script>
     </body>
 </html>
