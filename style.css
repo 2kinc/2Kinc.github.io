@@ -1,0 +1,19 @@
+.mdc-top-app-bar--fixed {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    left: 0;
+}
+
+body {
+    --mdc-theme-primary:#111; 
+    --mdc-them-secondary:#fff;
+    font-family:'Roboto', sans-serif;
+}
+
+::selection {
+    background: #0091ea;
+    background-opacity: 0.5;
+}
