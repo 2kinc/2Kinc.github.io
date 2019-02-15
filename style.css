@@ -11,6 +11,7 @@ body {
     --mdc-theme-primary:#111; 
     --mdc-them-secondary:#fff;
     font-family:'Roboto', sans-serif;
+    padding-top: 3em;
 }
 
 ::selection {
