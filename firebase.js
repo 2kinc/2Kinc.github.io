@@ -13,7 +13,12 @@ var config = {
   storageBucket: "exp-game.appspot.com",
   messagingSenderId: "770010726831"
 };
-firebase.initializeApp(config);
+
+var app = firebase.initializeApp(config);
+var database = app.database();
+var auth = app.auth();
+var storage = app.storage();
+var databaseref = database.ref().child('chat');
 
 var actionCodeSettings = {
   // URL you want to redirect back to.
