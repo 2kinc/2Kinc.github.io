@@ -130,6 +130,19 @@
 			</ul>
 		</div>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+		<script>
+  			// Initialize Firebase
+  			var config = {
+    			apiKey: "AIzaSyDMuGYsD_rUZUBRDQeKvQiWW7jo7gOuW-k",
+    			authDomain: "exp-game.firebaseapp.com",
+				databaseURL: "https://exp-game.firebaseio.com",
+				projectId: "exp-game",
+				storageBucket: "exp-game.appspot.com",
+				messagingSenderId: "770010726831"
+			  };
+  			firebase.initializeApp(config);
+		</script>
         <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'));
 		document.querySelector("#home-button").addEventListener('click', function() {
 			document.querySelector('#home').style.display="block";
