@@ -6,12 +6,12 @@ var site = {
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyDMuGYsD_rUZUBRDQeKvQiWW7jo7gOuW-k",
-  authDomain: "exp-game.firebaseapp.com",
-  databaseURL: "https://exp-game.firebaseio.com",
-  projectId: "exp-game",
-  storageBucket: "exp-game.appspot.com",
-  messagingSenderId: "770010726831"
+  apiKey: "AIzaSyADD6YWKrzibRMwJNi1FwUR0jcR0GitZPI",
+  authDomain: "k-inc-232222.firebaseapp.com",
+  databaseURL: "https://k-inc-232222.firebaseio.com",
+  projectId: "k-inc-232222",
+  storageBucket: "",
+  messagingSenderId: "827804821456"
 };
 
 var app = firebase.initializeApp(config);
