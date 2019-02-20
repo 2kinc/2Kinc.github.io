@@ -1,6 +1,6 @@
 var site = {
   elements: {
-    signup: document.querySelector('#signup');
+    signup: document.querySelector('#signup')
   }
 }
 
