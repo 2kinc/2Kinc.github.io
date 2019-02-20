@@ -83,7 +83,6 @@ firebase.auth().fetchSignInMethodsForEmail(email)
   .catch(function(error) {
     // Some error occurred, you can inspect the code: error.code
   });
-}
 
 firebase.auth().signOut().then(function() {
   // Sign-out successful.
