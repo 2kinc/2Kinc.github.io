@@ -4,8 +4,8 @@ function Site() {
     posts: document.querySelector('#post-body'),
     submitpost: document.querySelector('#submit-post-button')
   };
-  this.displayMessage = function(message) {
-    this.elements.posts.innerHTML = message + this.elements.posts.innerHTML;
+  this.displayMessage = function(m) {
+    this.elements.posts.innerHTML = m.user + ' said: ' + m.message + 'at ' + m.time + '<br>' + this.elements.posts.innerHTML;
   }
 }
 
@@ -28,7 +28,12 @@ var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
 site.elements.submitpost.addEventListener('click', function () {
-  var chat = {message: site.elements.postinput.value, name: 'Anonymous Dood'};
+  var d = new Date();
+  var chat = {
+    message: site.elements.postinput.value, 
+    name: 'Anonymous Dood', 
+    time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+  };
   databaseref.push().set(chat);
   site.elements.postinput.value = '';
 });
