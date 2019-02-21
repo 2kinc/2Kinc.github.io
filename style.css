@@ -29,7 +29,8 @@ a:hover::after {
 }
 
 #submit-post-button {
-    right: 2em;
+    float: right;
+    bottom: 4em;
 }
 
 #posts-body {
