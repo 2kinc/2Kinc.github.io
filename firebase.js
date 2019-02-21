@@ -11,7 +11,7 @@ function Site() {
     p.innerText = p.name + ' said: "' + p.message + '" at ' + p.time;
     var image = document.createElement('img');
     image.src = m.profilePicture;
-    image.addClass('profile-picture');
+    image.className = 'profile-picture';
     p.height = '30px';
     var wrapper = document.createElement('p');
     wrapper.appendChild(image);
