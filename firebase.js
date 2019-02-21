@@ -1,8 +1,14 @@
-var site = {
-  elements: {
-    signup: document.querySelector('#signup')
+function Site() {
+  this.elements = {
+    postinput: document.querySelector('#post-input'),
+    posts: document.querySelector('#post-body')
+  };
+  this.displayMessage = function(message) {
+    this.elements.posts.innerHTML = message + this.elements.posts.innerHTML;
   }
 }
+
+var site = new Site();
 
 // Initialize Firebase
 var config = {
@@ -20,10 +26,13 @@ var auth = app.auth();
 var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
-var actionCodeSettings = {
-  // URL you want to redirect back to.
-  // URL must be whitelisted in the Firebase Console.
-  url: 'https://2kinc.github.io/callback',
-  // This must be true.
-  handleCodeInApp: true
-};
+site.elements.postinput.addEventListener('submit' function (e) {
+  var chat = {message: site.elements.postinput.value, name: 'Anonymous Dood'}
+  databaseref.push().set(chat);
+  site.elements.postinput.value = '';
+});
+
+databaseref.on('child_added', function(snapshot){
+  var chat = snapshot.val();
+  site.displayMessage(chat);
+});
