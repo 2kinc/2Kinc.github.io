@@ -41,7 +41,7 @@ a:hover::after {
     right: 2em;
 }
 
-#posts {
+#posts-body {
     margin-top: 1em;
     max-height: 80%;
     overflow: scroll;
