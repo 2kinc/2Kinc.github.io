@@ -32,7 +32,7 @@ site.elements.submitpost.addEventListener('click', function () {
   var chat = {
     message: site.elements.postinput.value, 
     name: 'Anonymous Dood', 
-    time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+    time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
   };
   databaseref.push().set(chat);
   site.elements.postinput.value = '';
