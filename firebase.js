@@ -60,7 +60,7 @@ site.elements.signinwithgoogle.addEventListener('click', function() {
 auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
-    alert(user.displayName ", you have successfully signed in. ")
+    alert(user.displayName + ", you have successfully signed in. ")
   } else {
     //user has logged out
     alert('You have logged out. i see you btw 👀')
