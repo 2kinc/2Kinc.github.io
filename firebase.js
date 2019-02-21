@@ -16,6 +16,7 @@ function Site() {
     var wrapper = document.createElement('p');
     wrapper.appendChild(image);
     wrapper.appendChild(p);
+    wrapper.style.padding = '15px 0';
     this.elements.posts.insertBefore(wrapper, this.elements.posts.firstChild);
   }
   this.user;
