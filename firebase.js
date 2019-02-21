@@ -26,7 +26,7 @@ var auth = app.auth();
 var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
-site.elements.postinput.addEventListener('submit' function (e) {
+site.elements.postinput.addEventListener('submit', function (e) {
   var chat = {message: site.elements.postinput.value, name: 'Anonymous Dood'};
   databaseref.push().set(chat);
   site.elements.postinput.value = '';
