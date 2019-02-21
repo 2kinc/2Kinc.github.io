@@ -8,11 +8,11 @@ function Site() {
   };
   this.displayMessage = function(m) {
     var p = document.createElement('p');
-    p.innerText = p.name + ' said: "' + p.message + '" at ' + p.time;
+    p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     var image = document.createElement('img');
     image.src = m.profilePicture;
     image.className = 'profile-picture';
-    p.height = '30px';
+    image.height = '30px';
     var wrapper = document.createElement('p');
     wrapper.appendChild(image);
     wrapper.appendChild(p);
