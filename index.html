@@ -141,8 +141,12 @@
 		</div>
 		<div id="posts" style="display: none;">
 			<div id="posts-body"></div>
-			<input id="post-input" type="text" />
-			<button id="submit-post-button">Post</button>
+			<div class="mdc-text-field">
+				<input type="text" id="post-input" class="mdc-text-field__input">
+				<label class="mdc-floating-label" for="my-text-field">Type you message...</label>
+				<div class="mdc-line-ripple"></div>
+			</div>
+			<button id="submit-post-button" class="mdc-button mdc-card__action mdc-card__action--button mdc-ripple-upgraded">Post</button>
 		</div>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
