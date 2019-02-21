@@ -1,7 +1,7 @@
 function Site() {
   this.elements = {
     postinput: document.querySelector('#post-input'),
-    posts: document.querySelector('#post-body'),
+    posts: document.querySelector('#posts-body'),
     submitpost: document.querySelector('#submit-post-button')
   };
   this.displayMessage = function(m) {
