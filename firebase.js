@@ -9,7 +9,7 @@ function Site() {
   this.displayMessage = function(m) {
     var el = document.createElement('p');
     el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
-    this.elements.posts.appendChild(el);
+    this.elements.posts.insertBefore(el, this.elements.posts.firstChild);
   }
   this.user = {displayName: 'Anonymous Dood'};
   this.updateUserInfo = function(u) {
