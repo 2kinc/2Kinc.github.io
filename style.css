@@ -27,3 +27,8 @@ a {
 a:hover::after {
     content: " - please click me!"
 }
+
+#post-input {
+    position: absolute;
+    bottom: 2em;
+}
