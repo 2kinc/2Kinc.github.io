@@ -11,7 +11,7 @@ function Site() {
     el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     this.elements.posts.appendChild(el);
   }
-  this.user;
+  this.user = {displayName: 'Anonymous Dood'};
   this.updateUserInfo = function(u) {
     this.elements.userinfo.innerText = 'You are signed in as ' + u.displayName + '. ';
     this.user = u;
