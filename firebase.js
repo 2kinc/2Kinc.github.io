@@ -11,7 +11,7 @@ function Site() {
     el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     this.elements.posts.insertBefore(el, this.elements.posts.firstChild);
   }
-  this.user = {displayName: 'Anonymous Dood'};
+  this.user;
   this.updateUserInfo = function(u) {
     this.elements.userinfo.innerText = 'You are signed in as ' + u.displayName + '. ';
     this.user = u;
@@ -51,6 +51,19 @@ site.elements.submitpost.addEventListener('click', function () {
     }
 });
 
+site.elements.postinput.addEventListener('keyup', function (e) {
+  if (e.key == 'Enter' && site.elements.postinput.value != '') {
+    var d = new Date();
+    var chat = {
+      message: site.elements.postinput.value, 
+      name: site.user.displayName, 
+      time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+    };
+    databaseref.push().set(chat);
+    site.elements.postinput.value = '';
+  }
+});
+
 //update chat elements on database update
 databaseref.on('child_added', function(snapshot){
   var chat = snapshot.val();
@@ -69,6 +82,6 @@ auth.onAuthStateChanged(function(user) {
     site.updateUserInfo(user);
   } else {
     //user has logged out
-    site.elements.userinfo.innerText = "You are not signed in: you default username will be Anonymous Dood.";
+    site.elements.userinfo.innerText = "You are not signed in to 2K inc.";
   }
 });
