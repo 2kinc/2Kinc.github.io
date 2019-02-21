@@ -38,7 +38,7 @@ a:hover::after {
     overflow: scroll;
 }
 
-#post-sending {
+#posts-sending {
     position: absolute;
     bottom: 0;
     width: 100%;
