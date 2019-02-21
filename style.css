@@ -55,3 +55,7 @@ a:hover::after {
     float: left;
     margin: 5px;
 }
+
+#sign-in-with-google {
+    width: 8em;
+}
