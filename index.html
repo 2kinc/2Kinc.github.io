@@ -49,6 +49,15 @@
                                         </span>
                                         <span class="mdc-tab__ripple"></span>
                                     </button>
+									<button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="post-stuff-button">
+                                        <span class="mdc-tab__content">
+                                            <span class="mdc-tab__text-label"style="color:white;">Post Stuff</span>
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style="background:white;"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +69,6 @@
 			<h2 class="mdc-typography--headline5">2K inc</h2>
 			<p>A company making games for your pleasure.</p>
             <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
-			<a id="signup" style="font-size: 5em;">Sign Up/Log in for free!</a>
         </div>
 		<div id="game" style="display:none;">
 		<h2 class="mdc-typography--headline5">Games we have made</h2>
@@ -116,7 +124,7 @@
 		</div>
 		<div id="about" style="display:none;">
 			<h2 class="mdc-typography--headline5">About us</h2>
-			<p>We make games and have fun doing it! Our latest game, <a href="exp-game">E. X. P.</a>, is in pre-alpha! Please pay a visit sometime soon, it will be constantly updated. All our games are free and we hope you enjoy them. Our (small) army of awesome coders include: </p>
+			<p>We make games and have fun doing it! Our latest game, <a href="exp-game">E. X. P.</a>, is in pre-alpha. Please pay a visit sometime soon, it will be constantly updated. All our games are free and we hope you enjoy them. Our (small) army of awesome coders include: </p>
 			<ul class="mdc-list">
   				<li class="mdc-list-item" tabindex="0">
     				<a class="mdc-list-item__text" href="https://www.github.com/iamcev">iamcev, lead developer and designer</a>
@@ -129,25 +137,41 @@
   				</li>
 			</ul>
 		</div>
+		<div id="posts" style="display: none;">
+			<div id="posts-body"></div>
+			<input id="post-input" type="text" />
+		</div>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
 		<script src="firebase.js"></script>
         <script>mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'));
-		document.querySelector("#home-button").addEventListener('click', function() {
-			document.querySelector('#home').style.display="block";
-			document.querySelector('#game').style.display="none";
-			document.querySelector('#about').style.display="none";
+		function qs(query) {
+			return document.querySelector(query);
+		}
+		qs("#home-button").addEventListener('click', function() {
+			qs('#home').style.display="block";
+			qs('#game').style.display="none";
+			qs('#about').style.display="none";
+			qs('#posts').style.display = 'none';
 		});
-		document.querySelector("#game-button").addEventListener('click', function() {
-			document.querySelector('#home').style.display="none";
-			document.querySelector('#game').style.display="block";
-			document.querySelector('#about').style.display="none";
+		qs("#game-button").addEventListener('click', function() {
+			qs('#home').style.display="none";
+			qs('#game').style.display="block";
+			qs('#about').style.display="none";
+			qs('#posts').style.display = 'none';
 		});
-		document.querySelector("#about-button").addEventListener('click', function() {
-			document.querySelector('#home').style.display="none";
-			document.querySelector('#game').style.display="none";
-			document.querySelector('#about').style.display="block";
+		qs("#about-button").addEventListener('click', function() {
+			qs('#home').style.display="none";
+			qs('#game').style.display="none";
+			qs('#about').style.display="block";
+			qs('#posts').style.display = 'none';
 		});
+		qs('#post-stuff-button').addEventListener('click', function () {
+			qs('#home').style.display="none";
+			qs('#game').style.display="none";
+			qs('#about').style.display="none";
+			qs('#posts').style.display = 'block';
+		})
 		</script>
     </body>
 </html>
