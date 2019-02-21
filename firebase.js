@@ -2,7 +2,8 @@ function Site() {
   this.elements = {
     postinput: document.querySelector('#post-input'),
     posts: document.querySelector('#posts-body'),
-    submitpost: document.querySelector('#submit-post-button')
+    submitpost: document.querySelector('#submit-post-button'),
+    signinwithgoogle: document.querySelector('#sign-in-with-google')
   };
   this.displayMessage = function(m) {
     var el = document.createElement('p');
@@ -23,12 +24,14 @@ var config = {
   messagingSenderId: "827804821456"
 };
 
+//firebase variables
 var app = firebase.initializeApp(config);
 var database = app.database();
 var auth = app.auth();
 var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
+//submit post on button click and add to database
 site.elements.submitpost.addEventListener('click', function () {
   if (site.elements.postinput.value != '') {
     var d = new Date();
@@ -42,7 +45,24 @@ site.elements.submitpost.addEventListener('click', function () {
     }
 });
 
+//update chat elements on database update
 databaseref.on('child_added', function(snapshot){
   var chat = snapshot.val();
   site.displayMessage(chat);
+});
+
+//sign in with google on button click
+site.elements.signinwithgoogle.addEventListener('click', function() {
+  auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+});
+
+//detect login state change (sign in or sign out) and update username
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    //user has logged in
+    alert(user.displayName ", you have successfully signed in. ")
+  } else {
+    //user has logged out
+    alert('You have logged out. i see you btw 👀')
+  }
 });
