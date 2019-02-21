@@ -6,7 +6,7 @@ function Site() {
   };
   this.displayMessage = function(m) {
     var el = document.createElement('p');
-    p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
+    el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     this.elements.posts.appendChild(el);
   }
 }
