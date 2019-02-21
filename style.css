@@ -31,6 +31,7 @@ a:hover::after {
 #submit-post-button {
     float: right;
     bottom: 4em;
+    right: 4em;
 }
 
 #posts-body {
