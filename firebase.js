@@ -11,8 +11,10 @@ function Site() {
     el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     this.elements.posts.appendChild(el);
   }
+  this.user;
   this.updateUserInfo = function(u) {
-    this.elements.userinfo.innerText = 'You are signed in as ' + u + '. ';
+    this.elements.userinfo.innerText = 'You are signed in as ' + u.displayName + '. ';
+    this.user = u;
   }
 }
 
@@ -41,7 +43,7 @@ site.elements.submitpost.addEventListener('click', function () {
     var d = new Date();
     var chat = {
       message: site.elements.postinput.value, 
-      name: 'Anonymous Dood', 
+      name: site.user.displayName, 
       time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
     };
     databaseref.push().set(chat);
@@ -64,9 +66,9 @@ site.elements.signinwithgoogle.addEventListener('click', function() {
 auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
-    site.updateUserInfo(user.displayName);
+    site.updateUserInfo(user);
   } else {
     //user has logged out
-    site.updateUserInfo('Anonymous Dood');
+    site.elements.userinfo.innerText = "You are not signed in: you default username will be Anonymous Dood.";
   }
 });
