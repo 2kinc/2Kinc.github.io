@@ -30,14 +30,16 @@ var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
 site.elements.submitpost.addEventListener('click', function () {
-  var d = new Date();
-  var chat = {
-    message: site.elements.postinput.value, 
-    name: 'Anonymous Dood', 
-    time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
-  };
-  databaseref.push().set(chat);
-  site.elements.postinput.value = '';
+  if (site.elements.postinput.value != '') {
+    var d = new Date();
+    var chat = {
+      message: site.elements.postinput.value, 
+      name: 'Anonymous Dood', 
+      time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
+    };
+    databaseref.push().set(chat);
+    site.elements.postinput.value = '';
+    }
 });
 
 databaseref.on('child_added', function(snapshot){
