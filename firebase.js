@@ -12,7 +12,7 @@ function Site() {
     var image = document.createElement('img');
     image.src = m.profilePicture;
     image.className = 'profile-picture';
-    image.height = '30px';
+    image.height = 30;
     var wrapper = document.createElement('p');
     wrapper.appendChild(image);
     wrapper.appendChild(p);
