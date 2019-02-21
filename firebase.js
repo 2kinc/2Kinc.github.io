@@ -5,7 +5,9 @@ function Site() {
     submitpost: document.querySelector('#submit-post-button')
   };
   this.displayMessage = function(m) {
-    this.elements.posts.innerHTML = m.user + ' said: ' + m.message + 'at ' + m.time + '<br>' + this.elements.posts.innerHTML;
+    var el = document.createElement('p');
+    p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
+    this.elements.posts.appendChild(el);
   }
 }
 
