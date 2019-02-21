@@ -20,9 +20,9 @@ function Site() {
     this.elements.posts.insertBefore(wrapper, this.elements.posts.firstChild);
   }
   this.user;
-  this.updateUserInfo = function(u) {
-    this.elements.userinfo.innerText = 'You are signed in as ' + u.displayName + '. ';
-    this.user = u;
+  this.updateUserInfo = function() {
+    this.elements.userinfo.innerText = 'You are signed in as ' + auth.currentUser.displayName + '. ';
+    this.user = auth.currentUser;
   }
 }
 
@@ -93,7 +93,7 @@ site.elements.signinwithgoogle.addEventListener('click', function() {
 auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
-    site.updateUserInfo(user);
+    site.updateUserInfo();
   } else {
     //user has logged out
     site.elements.userinfo.innerText = "You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!";
