@@ -3,12 +3,16 @@ function Site() {
     postinput: document.querySelector('#post-input'),
     posts: document.querySelector('#posts-body'),
     submitpost: document.querySelector('#submit-post-button'),
-    signinwithgoogle: document.querySelector('#sign-in-with-google')
+    signinwithgoogle: document.querySelector('#sign-in-with-google'),
+    userinfo: document.querySelector('#user-info')
   };
   this.displayMessage = function(m) {
     var el = document.createElement('p');
     el.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     this.elements.posts.appendChild(el);
+  }
+  this.updateUserInfo = function(u) {
+    this.elements.userinfo.innerText = 'You are signed in as ' + u + '. ';
   }
 }
 
@@ -60,9 +64,9 @@ site.elements.signinwithgoogle.addEventListener('click', function() {
 auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
-    alert(user.displayName + ", you have successfully signed in. ")
+    site.updateUserInfo(user.displayName);
   } else {
     //user has logged out
-    alert('You have logged out. i see you btw 👀')
+    site.updateUserInfo('Anonymous Dood');
   }
 });
