@@ -28,13 +28,6 @@ a:hover::after {
     content: " - please click me!"
 }
 
-#post-input {
-    position: fixed;
-    bottom: 2em;
-    left: 2em;
-    width: 90%;
-}
-
 #submit-post-button {
     position: fixed;
     bottom: 2em;
