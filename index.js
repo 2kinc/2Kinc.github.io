@@ -48,16 +48,17 @@ var databaseref = database.ref().child('chat');
 
 //submit post on button click and add to database
 site.elements.submitpost.click(function () {
-  if (site.elements.postinput.value != '' && site.user != undefined) {
+  if (site.elements.postinput.val() != '' && site.user != undefined) {
     var d = new Date();
     var chat = {
-      message: site.elements.postinput.value,
+      message: site.elements.postinput.val(),
       profilePicture: site.user.photoURL,
       name: site.user.displayName,
       time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
     };
     databaseref.push().set(chat);
-    site.elements.postinput.value = '';
+    site.elements.postinput.val('');
+    site.elements.postinput.trigger('submit');
   } else if (site.user == undefined) {
     alert('Sign in to 2K inc. to chat!');
   }
@@ -67,14 +68,14 @@ site.elements.postinput.keyup(function (e) {
   if (e.key == 'Enter' && site.elements.postinput.value != '' && site.user != undefined) {
     var d = new Date();
     var chat = {
-      message: site.elements.postinput.value,
+      message: site.elements.postinput.val(),
       profilePicture: site.user.photoURL,
       name: site.user.displayName,
       time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
     };
     databaseref.push().set(chat);
-    site.elements.postinput.value = '';
-    site.elements.postinput.submit();
+    site.elements.postinput.val('');
+    site.elements.postinput.trigger('submit');
   } else if (site.user == undefined) {
     alert('Sign in to 2K inc. to chat!');
   }
