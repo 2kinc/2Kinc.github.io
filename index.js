@@ -5,7 +5,8 @@ function Site() {
     submitpost: $('#submit-post-button'),
     signinwithgoogle: $('#sign-in-with-google'),
     userinfo: $('#user-info'),
-    globalchatdisabled: $('#global-chat-disabled')
+    globalchatdisabled: $('#global-chat-disabled'),
+    yourpropic:$('#your-pro-pic')
   };
   this.displayMessage = function(m) {
     var p = document.createElement('p');
@@ -98,9 +99,14 @@ auth.onAuthStateChanged(function(user) {
     //user has logged in
     site.updateUserInfo();
     site.elements.globalchatdisabled.hide();
+    site.elements.signinwithgoogle.hide();
+    site.elements.yourpropic.show();
+    site.elemenent.yourpropic.attr('src', site.user.photoURL);
   } else {
     //user has logged out
     site.elements.userinfo.text("You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!");
     site.elements.globalchatdisabled.show();
+    site.elements.signinwithgoogle.show();
+    site.elements.yourpropic.hide();
   }
 });
