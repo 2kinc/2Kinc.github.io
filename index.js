@@ -5,7 +5,7 @@ function Site() {
     submitpost: $('#submit-post-button'),
     signinwithgoogle: $('#sign-in-with-google'),
     userinfo: $('#user-info'),
-    globalchatdisabled: $('global-chat-disabled')
+    globalchatdisabled: $('#global-chat-disabled')
   };
   this.displayMessage = function(m) {
     var p = document.createElement('p');
@@ -97,10 +97,10 @@ auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
     site.updateUserInfo();
-    site.elements.globalchatdisabled.css({'display': 'none'});
+    site.elements.globalchatdisabled.hide();
   } else {
     //user has logged out
     site.elements.userinfo.text("You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!");
-    site.elements.globalchatdisabled.css({'display': 'none'});
+    site.elements.globalchatdisabled.show();
   }
 });
