@@ -8,7 +8,7 @@
 }
 
 body {
-    --mdc-theme-primary:#111; 
+    --mdc-theme-primary:#111;
     --mdc-them-secondary:#fff;
     font-family:'Roboto', sans-serif;
     padding-top: 3em;
@@ -58,4 +58,12 @@ a:hover::after {
 
 #sign-in-with-google {
     width: 8em;
+}
+
+#global-chat-disabled {
+  width: 100%;
+  height: 100vh;
+  font-size: 4em;
+  text-align: center;
+  padding: 1em 0;
 }

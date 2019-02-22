@@ -153,41 +153,41 @@
 				</div>
 				<button id="submit-post-button" class="mdc-button mdc-ripple-upgraded mdc-button--raised">Send</button>
 			</div>
+      <div id="global-chat-disabled">
+        Sign in to 2K inc. to join the party!
+      </div>
 		</div>
-        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="index.js"></script>
-        <script>
-			function qs(query) {
-				return document.querySelector(query);
-			}
-			
-			mdc.tabBar.MDCTabBar.attachTo(qs('.mdc-tab-bar'));
-			mdc.textField.MDCTextField.attachTo(qs('#posts-sending'));
+    <script>
+			mdc.tabBar.MDCTabBar.attachTo($('.mdc-tab-bar'));
+			mdc.textField.MDCTextField.attachTo($('#posts-sending'));
 
-			qs("#home-button").addEventListener('click', function() {
-				qs('#home').style.display="block";
-				qs('#game').style.display="none";
-				qs('#about').style.display="none";
-				qs('#posts').style.display = 'none';
+			$("#home-button").click(function() {
+				$('#home').show();
+				$('#game').hide();
+				$('#about').hide();
+				$('#posts').hide();
 			});
-			qs("#game-button").addEventListener('click', function() {
-				qs('#home').style.display="none";
-				qs('#game').style.display="block";
-				qs('#about').style.display="none";
-				qs('#posts').style.display = 'none';
+			$("#game-button").click(function() {
+				$('#home').hide();
+				$('#game').show();
+				$('#about').hide();
+				$('#posts').hide();
 			});
-			qs("#about-button").addEventListener('click', function() {
-				qs('#home').style.display="none";
-				qs('#game').style.display="none";
-				qs('#about').style.display="block";
-				qs('#posts').style.display = 'none';
+			$("#about-button").click(function() {
+				$('#home').hide();
+				$('#game').hide();
+				$('#about').show();
+				$('#posts').hide();
 			});
-			qs('#post-stuff-button').addEventListener('click', function () {
-				qs('#home').style.display="none";
-				qs('#game').style.display="none";
-				qs('#about').style.display="none";
-				qs('#posts').style.display = 'block';
+			$('#post-stuff-button').addEventListener('click', function () {
+				$('#home').hide();
+				$('#game').hide();
+				$('#about').hide();
+				$('#posts').show();
 			});
 		</script>
     </body>

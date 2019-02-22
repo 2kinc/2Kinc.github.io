@@ -1,10 +1,11 @@
 function Site() {
   this.elements = {
-    postinput: document.querySelector('#post-input'),
-    posts: document.querySelector('#posts-body'),
-    submitpost: document.querySelector('#submit-post-button'),
-    signinwithgoogle: document.querySelector('#sign-in-with-google'),
-    userinfo: document.querySelector('#user-info')
+    postinput: $('#post-input'),
+    posts: $('#posts-body'),
+    submitpost: $('#submit-post-button'),
+    signinwithgoogle: $('#sign-in-with-google'),
+    userinfo: $('#user-info'),
+    globalchatdisabled: $('global-chat-disabled')
   };
   this.displayMessage = function(m) {
     var p = document.createElement('p');
@@ -21,7 +22,7 @@ function Site() {
   }
   this.user;
   this.updateUserInfo = function() {
-    this.elements.userinfo.innerText = 'You are signed in as ' + auth.currentUser.displayName + '. ';
+    this.elements.userinfo.text('You are signed in as ' + auth.currentUser.displayName + '. ');
     this.user = auth.currentUser;
   }
 }
@@ -81,8 +82,10 @@ site.elements.postinput.addEventListener('keyup', function (e) {
 
 //update chat elements on database update
 databaseref.on('child_added', function(snapshot){
-  var chat = snapshot.val();
-  site.displayMessage(chat);
+  if (site.user != undefined) {
+    var chat = snapshot.val();
+    site.displayMessage(chat);
+  }
 });
 
 //sign in with google on button click
@@ -95,8 +98,10 @@ auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
     site.updateUserInfo();
+    site.elements.globalchatdisabled.hide();
   } else {
     //user has logged out
-    site.elements.userinfo.innerText = "You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!";
+    site.elements.userinfo.text("You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!");
+    site.elements.globalchatdisabled.show();
   }
 });
