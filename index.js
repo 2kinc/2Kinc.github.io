@@ -47,7 +47,7 @@ var storage = app.storage();
 var databaseref = database.ref().child('chat');
 
 //submit post on button click and add to database
-site.elements.submitpost.addEventListener('click', function () {
+site.elements.submitpost.click(function () {
   if (site.elements.postinput.value != '' && site.user != undefined) {
     var d = new Date();
     var chat = {
@@ -63,7 +63,7 @@ site.elements.submitpost.addEventListener('click', function () {
   }
 });
 
-site.elements.postinput.addEventListener('keyup', function (e) {
+site.elements.postinput.keyup(function (e) {
   if (e.key == 'Enter' && site.elements.postinput.value != '' && site.user != undefined) {
     var d = new Date();
     var chat = {
@@ -89,7 +89,7 @@ databaseref.on('child_added', function(snapshot){
 });
 
 //sign in with google on button click
-site.elements.signinwithgoogle.addEventListener('click', function() {
+site.elements.signinwithgoogle.click( function() {
   auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 });
 
