@@ -85,9 +85,6 @@ site.elements.postinput.keyup(function (e) {
 databaseref.on('child_added', function(snapshot){
   var chat = snapshot.val();
   site.displayMessage(chat);
-  if (site.user != undefined) {
-    site.elements.globalchatdisabled.hide();
-  }
 });
 
 //sign in with google on button click
@@ -100,10 +97,10 @@ auth.onAuthStateChanged(function(user) {
   if (user) {
     //user has logged in
     site.updateUserInfo();
-    site.elements.globalchatdisabled.hide();
+    site.elements.globalchatdisabled.css({'display': 'none'});
   } else {
     //user has logged out
     site.elements.userinfo.text("You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!");
-    site.elements.globalchatdisabled.show();
+    site.elements.globalchatdisabled.css({'display': 'none'});
   }
 });
