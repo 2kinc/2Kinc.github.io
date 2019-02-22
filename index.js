@@ -83,9 +83,10 @@ site.elements.postinput.keyup(function (e) {
 
 //update chat elements on database update
 databaseref.on('child_added', function(snapshot){
+  var chat = snapshot.val();
+  site.displayMessage(chat);
   if (site.user != undefined) {
-    var chat = snapshot.val();
-    site.displayMessage(chat);
+    site.elements.globalchatdisabled.hide();
   }
 });
 
