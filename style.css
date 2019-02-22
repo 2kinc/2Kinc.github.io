@@ -12,6 +12,7 @@ body {
     --mdc-them-secondary:#fff;
     font-family:'Roboto', sans-serif;
     padding-top: 3em;
+    overflow-x:hidden;
 }
 
 ::selection {
