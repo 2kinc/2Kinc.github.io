@@ -18,7 +18,7 @@ function Site() {
     wrapper.appendChild(image);
     wrapper.appendChild(p);
     wrapper.style.padding = '0.1em 0';
-    this.elements.posts.insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
+    document.querySelector('#posts-body').insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
   }
   this.user;
   this.updateUserInfo = function() {
