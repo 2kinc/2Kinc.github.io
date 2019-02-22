@@ -67,4 +67,7 @@ a:hover::after {
   font-size: 4em;
   text-align: center;
   padding: 1em 0;
+  top: 1em;
+  position: absolute;
+  background: #fff;
 }
