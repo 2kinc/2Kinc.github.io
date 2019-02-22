@@ -37,7 +37,7 @@ a:hover::after {
 #posts-body {
     margin-top: 1em;
     max-height: 70vh;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #posts-sending {
