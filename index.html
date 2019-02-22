@@ -162,8 +162,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="index.js"></script>
     <script>
-			mdc.tabBar.MDCTabBar.attachTo($('.mdc-tab-bar'));
-			mdc.textField.MDCTextField.attachTo($('#posts-sending'));
+			mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'));
+			mdc.textField.MDCTextField.attachTo(document.querySelector('#posts-sending'));
 
 			$("#home-button").click(function() {
 				$('#home').show();
