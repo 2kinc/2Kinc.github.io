@@ -160,8 +160,8 @@ site.elements.yourpropic.click(function () {
         handler: function () { }
       }
     ], {
-        x: site.yourpropic.position().left - 150,
-        y: site.yourpropic.position().top + 65
+        x: site.elements.yourpropic.position().left - 150,
+        y: site.elements.yourpropic.position().top + 65
       });
     site.profileDropdownMenu.show();
   }
