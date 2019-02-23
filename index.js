@@ -37,6 +37,7 @@ function Site() {
     this.el.style.display = 'none';
     var ul = document.createElement('ul');
     ul.classList.add('mdc-list');
+    var that = this;
     items.forEach(function (element) {
       var li = document.createElement('li');
       li.classList.add('mdc-list-item');
@@ -47,7 +48,7 @@ function Site() {
       li.addEventListener('click', function () {
         element.handler();
       });
-      this.el.appendChild(li);
+      that.el.appendChild(li);
     });
     this.el.style.top = coordinate.y + 'px';
     this.el.style.left = coordinate.x + 'px';
