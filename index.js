@@ -213,6 +213,6 @@ document.oncontextmenu = function (e) {
   site.rightClickDropdownMenu.show();
   return false;
 };
-$(document).not(".dropdown-menu").click(function() {
+$(document.body).not(".dropdown-menu").click(function() {
         $('.dropdown-menu').hide();
     });
