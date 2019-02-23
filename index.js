@@ -150,6 +150,7 @@ auth.onAuthStateChanged(function (user) {
 site.elements.yourpropic.click(function () {
   if (site.toggleProfileDropdownMenu) {
     site.profileDropdownMenu.hide();
+    site.toggleProfileDropdownMenu = false;
   } else {
     site.profileDropdownMenu = new site.DropdownMenu([
       {
@@ -165,5 +166,6 @@ site.elements.yourpropic.click(function () {
         y: site.elements.yourpropic.position().top + 65
       });
     site.profileDropdownMenu.show();
+    site.toggleProfileDropdownMenu = true;
   }
 });
