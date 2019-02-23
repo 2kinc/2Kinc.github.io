@@ -37,6 +37,7 @@ function Site() {
     this.el.style.display = 'none';
     var ul = document.createElement('ul');
     ul.classList.add('mdc-list');
+    this.primed = false;
     var that = this;
     items.forEach(function (element) {
       var li = document.createElement('li');
@@ -46,10 +47,12 @@ function Site() {
       span.innerText = element.name;
       li.appendChild(span);
       that.el.appendChild(li);
-      function clickHandler () {
-        element.handler;
+      function clickHandler() {
+        if (that.primed)
+          element.handler;
+        that.primed = true;
       }
-      li.addEventListener('click', clickHandler);
+      li.addEventListener('click', function(){clickHandler()});
     });
     if (coordinate.x < 0) {
       this.el.style.right = Math.abs(coordinate.x) + 'px';
@@ -176,17 +179,18 @@ site.elements.yourpropic.click(function () {
   } else {
     site.profileDropdownMenu = new site.DropdownMenu(
       [{
-          name: 'Username: ' + site.user.displayName,
-          handler: function () {}
-        },
-        {
-          name: 'Email: ' + site.user.email,
-          handler: function () {}
-        }
+        name: 'Username: ' + site.user.displayName,
+        handler: function () { }
+      },
+      {
+        name: 'Email: ' + site.user.email,
+        handler: function () { }
+      }
       ], {
         x: -10,
         y: site.elements.yourpropic.position().top + 55
       });
+    site.profileDropdownMenu.el.id = 'profile-dropdown-menu';
     site.profileDropdownMenu.show();
     site.toggleProfileDropdownMenu = true;
   }
@@ -203,16 +207,23 @@ document.oncontextmenu = function (e) {
   site.rightClickDropdownMenu = new site.DropdownMenu(
     [{
       name: 'Copy',
-      handler: function(){
-        document.execCommand('copy');
-      }
-    }], {
-      x: e.clientX + 2,
-      y: e.clientY + 2
+      handler: document.execCommand('copy')
+    },
+    /*{
+      name: 'Reload',
+      handler: location.reload()
+    },*/
+    {
+      name: 'Go to Global Chat',
+      handler: $('post-stuff-button').trigger('click')
+    }
+    ], {
+      x: e.clientX + 5,
+      y: e.clientY + 5
     });
   site.rightClickDropdownMenu.show();
   return false;
 };
-$(document.body).not(".dropdown-menu").click(function() {
-        $('.dropdown-menu').hide();
-    });
+$(document.body).not(".dropdown-menu").click(function () {
+  $('.dropdown-menu').not('#profile-dropdown-menu').hide();
+});
