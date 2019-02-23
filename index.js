@@ -45,9 +45,7 @@ function Site() {
       span.classList.add('mdc-list-item__text');
       span.innerText = element.name;
       li.appendChild(span);
-      li.addEventListener('click', function () {
-        element.handler();
-      });
+      li.addEventListener('click', element.handler);
       that.el.appendChild(li);
     });
     this.el.style.top = coordinate.y + 'px';
