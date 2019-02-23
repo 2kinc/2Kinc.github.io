@@ -48,18 +48,32 @@ function Site() {
       li.addEventListener('click', element.handler);
       that.el.appendChild(li);
     });
-    this.el.style.top = coordinate.y + 'px';
-    this.el.style.left = coordinate.x + 'px';
+    if (coordinate.x < 0) {
+      this.el.style.right = Math.abs(coordinate.x) + 'px';
+    } else {
+      this.el.style.left = coordinate.x + 'px';
+    }
+
+    if (coordinate.y < 0) {
+      this.el.style.bottom = Math.abs(coordinate.y) + 'px';
+    } else {
+      this.el.style.top = coordinate.y + 'px';
+    }
+
     this.show = function () {
       this.el.style.display = 'block';
     };
     this.hide = function () {
       this.el.style.display = 'none';
     };
+    this.delete = function () {
+      document.body.removeChild(this.el);
+    }
     document.body.appendChild(this.el);
   };
   this.toggleProfileDropdownMenu = false;
   this.profileDropdownMenu;
+  this.rightClickDropdownMenu;
 }
 
 var site = new Site();
@@ -147,23 +161,43 @@ auth.onAuthStateChanged(function (user) {
 
 site.elements.yourpropic.click(function () {
   if (site.toggleProfileDropdownMenu) {
-    site.profileDropdownMenu.hide();
+    site.profileDropdownMenu.delete();
     site.toggleProfileDropdownMenu = false;
   } else {
-    site.profileDropdownMenu = new site.DropdownMenu([
-      {
-        name: 'Username: ' + site.user.displayName,
-        handler: function () { }
-      },
-      {
-        name: 'Email: ' + site.user.email,
-        handler: function () { }
-      }
-    ], {
-        x: site.elements.yourpropic.position().left - 150,
-        y: site.elements.yourpropic.position().top + 65
+    site.profileDropdownMenu = new site.DropdownMenu(
+      [
+        {
+          name: 'Username: ' + site.user.displayName,
+          handler: function () { }
+        },
+        {
+          name: 'Email: ' + site.user.email,
+          handler: function () { }
+        }
+      ], {
+        x: -10,
+        y: site.elements.yourpropic.position().top + 55
       });
     site.profileDropdownMenu.show();
     site.toggleProfileDropdownMenu = true;
   }
 });
+
+document.oncontextmenu = function (e) {
+  e.preventDefault();
+  if (site.rightClickDropdownMenu != undefined) {
+    site.rightClickDropdownMenu.delete();
+  }
+  site.rightClickDropdownMenu = new site.DropdownMenu(
+    [
+      {
+        name: 'hello!',
+        handler: console.log('hello!')
+      }
+    ], {
+      x: e.clientX + 2,
+      y: e.clientY + 2
+    });
+  site.rightClickDropdownMenu.show();
+  return false;
+};
