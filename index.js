@@ -94,7 +94,6 @@ var database = app.database();
 var auth = app.auth();
 var storage = app.storage();
 var databaseref = database.ref().child('chat');
-
 //submit post on button click and add to database
 site.elements.submitpost.click(function () {
   if (site.elements.postinput.val() != '' && site.user != undefined) {
@@ -201,3 +200,6 @@ document.oncontextmenu = function (e) {
   site.rightClickDropdownMenu.show();
   return false;
 };
+$(document).not(".dropdown-menu").click(function() {
+        $('.dropdown-menu').hide();
+    });
