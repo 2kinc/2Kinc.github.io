@@ -101,7 +101,7 @@ auth.onAuthStateChanged(function(user) {
     site.elements.globalchatdisabled.hide();
     site.elements.signinwithgoogle.hide();
     site.elements.yourpropic.show();
-    site.elemenent.yourpropic.attr('src', site.user.photoURL);
+    site.elements.yourpropic.attr('src', site.user.photoURL);
   } else {
     //user has logged out
     site.elements.userinfo.text("You are not signed in to 2K inc. Sign in to save your games and join the party in the Global Chat!");
