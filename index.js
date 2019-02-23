@@ -58,7 +58,6 @@ function Site() {
       this.el.style.display = 'none';
     };
     document.body.appendChild(this.el);
-
   };
   this.toggleProfileDropdownMenu = false;
   this.profileDropdownMenu;
@@ -147,7 +146,7 @@ auth.onAuthStateChanged(function (user) {
   }
 });
 
-site.yourpropic.click(function () {
+site.elements.yourpropic.click(function () {
   if (site.toggleProfileDropdownMenu) {
     site.profileDropdownMenu.hide();
   } else {
