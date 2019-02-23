@@ -45,8 +45,11 @@ function Site() {
       span.classList.add('mdc-list-item__text');
       span.innerText = element.name;
       li.appendChild(span);
-      li.addEventListener('click', element.handler);
       that.el.appendChild(li);
+      function clickHandler () {
+        element.handler;
+      }
+      li.addEventListener('click', clickHandler);
     });
     if (coordinate.x < 0) {
       this.el.style.right = Math.abs(coordinate.x) + 'px';
@@ -67,13 +70,21 @@ function Site() {
       this.el.style.display = 'none';
     };
     this.delete = function () {
-      document.body.removeChild(this.el);
+      if (this.el.parentNode != null)
+        document.body.removeChild(this.el);
     }
     document.body.appendChild(this.el);
   };
   this.toggleProfileDropdownMenu = false;
   this.profileDropdownMenu;
   this.rightClickDropdownMenu;
+  this.deleteRightClickDropdownMenu = function (e) {
+    if (site.rightClickDropdownMenu != undefined) {
+      if (e.target != site.rightClickDropdownMenu.el)
+        site.rightClickDropdownMenu.delete();
+      console.log(e);
+    }
+  };
 }
 
 var site = new Site();
@@ -165,14 +176,13 @@ site.elements.yourpropic.click(function () {
     site.toggleProfileDropdownMenu = false;
   } else {
     site.profileDropdownMenu = new site.DropdownMenu(
-      [
-        {
+      [{
           name: 'Username: ' + site.user.displayName,
-          handler: function () { }
+          handler: function () {}
         },
         {
           name: 'Email: ' + site.user.email,
-          handler: function () { }
+          handler: function () {}
         }
       ], {
         x: -10,
@@ -183,18 +193,21 @@ site.elements.yourpropic.click(function () {
   }
 });
 
+document.addEventListener('click', site.deleteRightClickDropdownMenu, false);
+
 document.oncontextmenu = function (e) {
   e.preventDefault();
   if (site.rightClickDropdownMenu != undefined) {
-    site.rightClickDropdownMenu.delete();
+    if (site.rightClickDropdownMenu.el.parentNode != null)
+      site.rightClickDropdownMenu.delete();
   }
   site.rightClickDropdownMenu = new site.DropdownMenu(
-    [
-      {
-        name: 'hello!',
-        handler: console.log('hello!')
+    [{
+      name: 'Copy',
+      handler: function(){
+        document.execCommand('copy');
       }
-    ], {
+    }], {
       x: e.clientX + 2,
       y: e.clientY + 2
     });
