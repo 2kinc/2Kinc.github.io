@@ -75,9 +75,37 @@ a:hover::after {
 .dropdown-menu {
     position: absolute;
     cursor: pointer;
+    user-select: none;
 }
 
 #your-pro-pic {
     margin-top: 0px;
     cursor: pointer;
 }
+
+#big-banner {
+    height: 2em;
+    font-size: 6em;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    background: black;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.typed-cursor {
+    display: none;
+}
+
+#big-banner::after {
+    visibility: visible;
+    content: '';
+    background: linear-gradient(315deg, #22FF81 0%, #71BFFF 100%, #FFEC74 26%, #FF3AEC 70%) no-repeat 50% 50% / 100% 100%;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+    width: 0.1em;
+    height: 1em;
+    top: 5px;
+    margin-left: 0;
+  }

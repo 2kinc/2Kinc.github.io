@@ -6,8 +6,10 @@ function Site() {
     signinwithgoogle: $('#sign-in-with-google'),
     userinfo: $('#user-info'),
     globalchatdisabled: $('#global-chat-disabled'),
-    yourpropic: $('#your-pro-pic')
+    yourpropic: $('#your-pro-pic'),
+    bigbanner: $('big-banner')
   };
+
   this.displayMessage = function (m) {
     var p = document.createElement('p');
     p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
@@ -21,11 +23,13 @@ function Site() {
     wrapper.style.padding = '0.1em 0';
     document.querySelector('#posts-body').insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
   }
+
   this.user;
   this.updateUserInfo = function () {
     this.elements.userinfo.text('You are signed in as ' + auth.currentUser.displayName + '. ');
     this.user = auth.currentUser;
   }
+
   this.DropdownMenu = function (items, coordinate) {
     //items is an array like this:
     //[{name: 'OPTION NAME', handler: handler()}]
@@ -47,12 +51,19 @@ function Site() {
       span.innerText = element.name;
       li.appendChild(span);
       that.el.appendChild(li);
+
       function clickHandler() {
-        if (that.primed)
-          element.handler;
+        if (that.primed == true) {
+          (function () {
+            element.handler
+          });
+          return;
+        }
         that.primed = true;
       }
-      li.addEventListener('click', function(){clickHandler()});
+      li.onclick = function () {
+        clickHandler
+      };
     });
     if (coordinate.x < 0) {
       this.el.style.right = Math.abs(coordinate.x) + 'px';
@@ -75,19 +86,34 @@ function Site() {
     this.delete = function () {
       if (this.el.parentNode != null)
         document.body.removeChild(this.el);
+      this.primed = false;
     }
+
     document.body.appendChild(this.el);
   };
+
   this.toggleProfileDropdownMenu = false;
+
   this.profileDropdownMenu;
+
   this.rightClickDropdownMenu;
+
   this.deleteRightClickDropdownMenu = function (e) {
     if (site.rightClickDropdownMenu != undefined) {
       if (e.target != site.rightClickDropdownMenu.el)
         site.rightClickDropdownMenu.delete();
-      console.log(e);
     }
   };
+
+  this.elements.bigbanner.typedjsOptions = {
+    strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'skills++', 'We are awesome.', 'We are ^600 2K inc.'],
+    typeSpeed: 45,
+    smartDelay: 100,
+    backSpeed: 25,
+    backDelay: 600
+  }
+  
+  this.elements.bigbanner.typed = new Typed('#big-banner', this.elements.bigbanner.typedjsOptions);
 }
 
 var site = new Site();
@@ -179,13 +205,13 @@ site.elements.yourpropic.click(function () {
   } else {
     site.profileDropdownMenu = new site.DropdownMenu(
       [{
-        name: 'Username: ' + site.user.displayName,
-        handler: function () { }
-      },
-      {
-        name: 'Email: ' + site.user.email,
-        handler: function () { }
-      }
+          name: 'Username: ' + site.user.displayName,
+          handler: function () {}
+        },
+        {
+          name: 'Email: ' + site.user.email,
+          handler: function () {}
+        }
       ], {
         x: -10,
         y: site.elements.yourpropic.position().top + 55
@@ -206,17 +232,17 @@ document.oncontextmenu = function (e) {
   }
   site.rightClickDropdownMenu = new site.DropdownMenu(
     [{
-      name: 'Copy',
-      handler: document.execCommand('copy')
-    },
-    /*{
-      name: 'Reload',
-      handler: location.reload()
-    },*/
-    {
-      name: 'Go to Global Chat',
-      handler: $('post-stuff-button').trigger('click')
-    }
+        name: 'Copy',
+        handler: document.execCommand('copy')
+      },
+      /*{
+        name: 'Reload',
+        handler: location.reload()
+      },*/
+      {
+        name: 'Go to Global Chat',
+        handler: $('#post-stuff-button').trigger('click')
+      }
     ], {
       x: e.clientX + 5,
       y: e.clientY + 5
