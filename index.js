@@ -6,9 +6,9 @@ function Site() {
     signinwithgoogle: $('#sign-in-with-google'),
     userinfo: $('#user-info'),
     globalchatdisabled: $('#global-chat-disabled'),
-    yourpropic:$('#your-pro-pic')
+    yourpropic: $('#your-pro-pic')
   };
-  this.displayMessage = function(m) {
+  this.displayMessage = function (m) {
     var p = document.createElement('p');
     p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
     var image = document.createElement('img');
@@ -22,10 +22,46 @@ function Site() {
     document.querySelector('#posts-body').insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
   }
   this.user;
-  this.updateUserInfo = function() {
+  this.updateUserInfo = function () {
     this.elements.userinfo.text('You are signed in as ' + auth.currentUser.displayName + '. ');
     this.user = auth.currentUser;
   }
+  this.DropdownMenu = function (items, coordinate) {
+    //items is an array like this:
+    //[{name: 'OPTION NAME', handler: handler()}]
+    //coordinate is an object with {x: ?, y: ?}, x and y are numbers
+    //usually just use event.clientX and event.clientY
+    this.el = document.createElement('div');
+    this.el.classList.add('dropdown-menu');
+    this.el.classList.add('mdc-card');
+    this.el.style.display = 'none';
+    var ul = document.createElement('ul');
+    ul.classList.add('mdc-list');
+    items.forEach(function (element) {
+      var li = document.createElement('li');
+      li.classList.add('mdc-list-item');
+      var span = document.createElement('span');
+      span.classList.add('mdc-list-item__text');
+      span.innerText = element.name;
+      li.appendChild(span);
+      li.addEventListener('click', function () {
+        element.handler();
+      });
+      this.el.appendChild(li);
+    });
+    this.el.style.top = coordinate.y + 'px';
+    this.el.style.left = coordinate.x + 'px';
+    this.show = function () {
+      this.el.style.display = 'block';
+    };
+    this.hide = function () {
+      this.el.style.display = 'none';
+    };
+    document.body.appendChild(this.el);
+
+  };
+  this.toggleProfileDropdownMenu = false;
+  this.profileDropdownMenu;
 }
 
 var site = new Site();
@@ -83,18 +119,18 @@ site.elements.postinput.keyup(function (e) {
 });
 
 //update chat elements on database update
-databaseref.on('child_added', function(snapshot){
+databaseref.on('child_added', function (snapshot) {
   var chat = snapshot.val();
   site.displayMessage(chat);
 });
 
 //sign in with google on button click
-site.elements.signinwithgoogle.click( function() {
+site.elements.signinwithgoogle.click(function () {
   auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 });
 
 //detect login state change (sign in or sign out) and update username
-auth.onAuthStateChanged(function(user) {
+auth.onAuthStateChanged(function (user) {
   if (user) {
     //user has logged in
     site.updateUserInfo();
@@ -108,5 +144,26 @@ auth.onAuthStateChanged(function(user) {
     site.elements.globalchatdisabled.show();
     site.elements.signinwithgoogle.show();
     site.elements.yourpropic.hide();
+  }
+});
+
+site.yourpropic.click(function () {
+  if (site.toggleProfileDropdownMenu) {
+    site.profileDropdownMenu.hide();
+  } else {
+    site.profileDropdownMenu = new site.DropdownMenu([
+      {
+        name: 'Username: ' + site.user.displayName,
+        handler: function () { }
+      },
+      {
+        name: 'Email: ' + site.user.email,
+        handler: function () { }
+      }
+    ], {
+        x: site.yourpropic.position().left - 150,
+        y: site.yourpropic.position().top + 65
+      });
+    site.profileDropdownMenu.show();
   }
 });
