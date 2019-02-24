@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="alpha2klogo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <meta name="keywords" content="2k, 2k inc, 2k inc., 2K, 2K inc., games, 2d games, 2D games, exp, exp game, trick or treat, kalkulator, calculator, fidget, fidget tab, calc, jumping joe, a small planet, small planet">
-    <meta name="description" content="2K inc. is a fun company that makes games for your pleasure. Check out our new game, E. X. P.">
+    <meta name="keywords"
+        content="2k, 2k inc, 2k inc., 2K, 2K inc., games, 2d games, 2D games, exp, exp game, trick or treat, kalkulator, calculator, fidget, fidget tab, calc, jumping joe, a small planet, small planet">
+    <meta name="description"
+        content="2K inc. is a fun company that makes games for your pleasure. Check out our new game, E. X. P.">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -20,12 +22,14 @@
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                 <span class="mdc-top-app-bar__title">2K inc</span>
             </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" style="height: 100%;bottom: 0;">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
+                style="height: 100%;bottom: 0;">
                 <div class="mdc-tab-bar" role="tablist">
                     <div class="mdc-tab-scroller">
                         <div class="mdc-tab-scroller__scroll-area">
                             <div class="mdc-tab-scroller__scroll-content">
-                                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0" id="home-button">
+                                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0"
+                                    id="home-button">
                                     <span class="mdc-tab__content">
                                         <span class="mdc-tab__text-label" style="color:white;">Home</span>
                                     </span>
@@ -55,7 +59,8 @@
                                     </span>
                                     <span class="mdc-tab__ripple"></span>
                                 </button>
-                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="post-stuff-button">
+                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0"
+                                    id="post-stuff-button">
                                     <span class="mdc-tab__content">
                                         <span class="mdc-tab__text-label" style="color:white;">Global Chat</span>
                                     </span>
@@ -78,12 +83,14 @@
     </header>
     <div id="home">
         <div id="big-banner"></div>
-        <h2 class="mdc-typography--headline5">2K inc</h2>
-        <p>A company making games for your pleasure.</p>
-        <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
-        <p id="user-info"></p>
+        <div class="padded">
+            <h2 class="mdc-typography--headline5">2K inc</h2>
+            <p>A company making games for your pleasure.</p>
+            <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
+            <p id="user-info"></p>
+        </div>
     </div>
-    <div id="game" style="display:none;">
+    <div id="game" style="display:none;" class="padded">
         <h2 class="mdc-typography--headline5">Games we have made</h2>
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
@@ -93,7 +100,8 @@
                             <div class="demo-card__primary" style="padding-left:15px;">
                                 <h2 class="demo-card__title mdc-typography--body1">E. X. P.</h2>
                             </div>
-                            <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">Create
+                            <div class="demo-card__secondary mdc-typography--body2"
+                                style="padding-left:15px;padding-bottom:15px;">Create
                                 your own world, and don't starve!
                                 Warning: contains flashing effects. </div>
                         </div>
@@ -111,7 +119,8 @@
                             <div class="demo-card__primary" style="padding-left:15px;">
                                 <h2 class="demo-card__title mdc-typography--body1">Trick or treat</h2>
                             </div>
-                            <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">Go
+                            <div class="demo-card__secondary mdc-typography--body2"
+                                style="padding-left:15px;padding-bottom:15px;">Go
                                 trick or treating whenever you want on
                                 your computer!</div><br>
                         </div>
@@ -130,7 +139,8 @@
                             <div class="demo-card__primary" style="padding-left:15px;">
                                 <h2 class="demo-card__title mdc-typography--body1">Kalkulator</h2>
                             </div>
-                            <div class="demo-card__secondary mdc-typography--body2" style="padding-left:15px;padding-bottom:15px;">A
+                            <div class="demo-card__secondary mdc-typography--body2"
+                                style="padding-left:15px;padding-bottom:15px;">A
                                 calculator whenever you need one!</div>
                             <br>
                         </div>
@@ -146,7 +156,7 @@
             </div>
         </div>
     </div>
-    <div id="about" style="display:none;">
+    <div id="about" style="display:none;" class="padded">
         <h2 class="mdc-typography--headline5">About us</h2>
         <p>We make games and have fun doing it! Our latest game, <a href="exp-game">E. X. P.</a>, is in pre-alpha.
             Please pay a visit sometime soon, it will be constantly updated. All our games are free and we hope you
@@ -166,7 +176,7 @@
             </li>
         </ul>
     </div>
-    <div id="posts" style="display: none;">
+    <div id="posts" style="display: none;" class="padded">
         <div id="posts-body"></div>
         <div id="posts-sending">
             <div class="mdc-text-field" style="width: 80%;">

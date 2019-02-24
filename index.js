@@ -57,10 +57,10 @@ function Site() {
 
       function clickHandler() {
         if (that.primed == true) {
-            element.handler();
+          element.handler();
         }
-        else{
-            that.primed = true;
+        else {
+          that.primed = true;
         }
       }
 
@@ -100,13 +100,13 @@ function Site() {
   this.rightClickDropdownMenu;
 
   this.elements.bigbanner.typedjsOptions = {
-    strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'skills++', 'We are awesome.', 'We are ^600 2K inc.'],
+    strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'plays++', 'We are awesome.', 'We are ^600 2K inc.'],
     typeSpeed: 45,
     smartDelay: 100,
     backSpeed: 25,
     backDelay: 600
   }
-  
+
   this.elements.bigbanner.typed = new Typed('#big-banner', this.elements.bigbanner.typedjsOptions);
 }
 
@@ -200,13 +200,13 @@ site.elements.yourpropic.click(function () {
     site.profileDropdownMenu = new site.DropdownMenu(
       'Profile',
       [{
-          name: 'Username: ' + site.user.displayName,
-          handler: function () {}
-        },
-        {
-          name: 'Email: ' + site.user.email,
-          handler: function () {}
-        }
+        name: 'Username: ' + site.user.displayName,
+        handler: function () { }
+      },
+      {
+        name: 'Email: ' + site.user.email,
+        handler: function () { }
+      }
       ], {
         x: -10,
         y: site.elements.yourpropic.position().top + 55
@@ -226,9 +226,9 @@ document.oncontextmenu = function (e) {
   site.rightClickDropdownMenu = new site.DropdownMenu(
     'Action Menu',
     [{
-        name: 'Copy',
-        handler: document.execCommand('copy')
-      },
+      name: 'Copy',
+      handler: document.execCommand('copy')
+    },
       /*{
         name: 'Reload',
         handler: location.reload()
@@ -245,5 +245,6 @@ document.oncontextmenu = function (e) {
   return false;
 };
 $(document.body).not(".dropdown-menu").click(function (e) {
-  site.rightClickDropdownMenu.delete();
+  if (site.rightClickDropdownMenu != undefined)
+    site.rightClickDropdownMenu.delete();
 });
