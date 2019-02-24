@@ -100,7 +100,7 @@ function Site() {
   this.rightClickDropdownMenu;
 
   this.elements.bigbanner.typedjsOptions = {
-    strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'plays++', 'We are awesome.', 'We are ^600 2K inc.'],
+    strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'plays++', 'ducks++', 'We are awesome.', 'We are ^600 2K inc.'],
     typeSpeed: 45,
     smartDelay: 100,
     backSpeed: 25,
