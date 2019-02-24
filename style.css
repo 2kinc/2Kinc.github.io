@@ -83,6 +83,18 @@ a:hover::after {
     cursor: pointer;
 }
 
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 #big-banner {
     height: 2em;
     font-size: 6em;
@@ -91,6 +103,7 @@ a:hover::after {
     text-align: center;
     background: black;
     font-family: 'Roboto Mono', monospace;
+    margin: 0!important;
 }
 
 .typed-cursor {
@@ -105,7 +118,10 @@ a:hover::after {
     display: inline-block;
     position: relative;
     width: 0.1em;
-    height: 1em;
+    height: 0.9em;
     top: 5px;
     margin-left: 0;
-  }
+    animation: blink 1s infinite;
+    -webkit-animation: blink 1s infinite;
+    -moz-animation: blink 1s infinite;
+}
