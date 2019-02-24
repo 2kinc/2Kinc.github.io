@@ -87,7 +87,7 @@ a:hover::after {
     0% {
         opacity: 0;
     }
-    25% {
+    50% {
         opacity: 1;
     }
     100% {
@@ -124,4 +124,16 @@ a:hover::after {
     animation: blink 1s infinite;
     -webkit-animation: blink 1s infinite;
     -moz-animation: blink 1s infinite;
+}
+
+.dropdown-menu-title {
+    background: #ccc;
+    color: #000;
+    text-transform: uppercase;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8em;
+    font-weight: bolder;
+    padding: 5px 16px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }

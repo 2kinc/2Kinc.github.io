@@ -30,17 +30,20 @@ function Site() {
     this.user = auth.currentUser;
   }
 
-  this.DropdownMenu = function (items, coordinate) {
+  this.DropdownMenu = function (title, items, coordinate) {
     //items is an array like this:
     //[{name: 'OPTION NAME', handler: handler()}]
     //coordinate is an object with {x: ?, y: ?}, x and y are numbers
     //usually just use event.clientX and event.clientY
     this.el = document.createElement('div');
-    this.el.classList.add('dropdown-menu');
-    this.el.classList.add('mdc-card');
+    this.el.className = 'dropdown-menu mdc-card';
     this.el.style.display = 'none';
     var ul = document.createElement('ul');
-    ul.classList.add('mdc-list');
+    ul.className = 'mdc-list';
+    var titleEl = document.createElement('div');
+    titleEl.className = 'dropdown-menu-title';
+    titleEl.innerText = title;
+    this.el.appendChild(titleEl);
     this.primed = false;
     var that = this;
     items.forEach(function (element) {
@@ -54,16 +57,14 @@ function Site() {
 
       function clickHandler() {
         if (that.primed == true) {
-          (function () {
-            element.handler
-          });
-          return;
+            element.handler();
         }
-        that.primed = true;
+        else{
+            that.primed = true;
+        }
       }
-      li.onclick = function () {
-        clickHandler
-      };
+
+      li.onclick = clickHandler;
     });
     if (coordinate.x < 0) {
       this.el.style.right = Math.abs(coordinate.x) + 'px';
@@ -97,13 +98,6 @@ function Site() {
   this.profileDropdownMenu;
 
   this.rightClickDropdownMenu;
-
-  this.deleteRightClickDropdownMenu = function (e) {
-    if (site.rightClickDropdownMenu != undefined) {
-      if (e.target != site.rightClickDropdownMenu.el)
-        site.rightClickDropdownMenu.delete();
-    }
-  };
 
   this.elements.bigbanner.typedjsOptions = {
     strings: ['2K inc.', 'games++', 'levels++', 'xp++', 'skills++', 'We are awesome.', 'We are ^600 2K inc.'],
@@ -204,6 +198,7 @@ site.elements.yourpropic.click(function () {
     site.toggleProfileDropdownMenu = false;
   } else {
     site.profileDropdownMenu = new site.DropdownMenu(
+      'Profile',
       [{
           name: 'Username: ' + site.user.displayName,
           handler: function () {}
@@ -222,8 +217,6 @@ site.elements.yourpropic.click(function () {
   }
 });
 
-document.addEventListener('click', site.deleteRightClickDropdownMenu, false);
-
 document.oncontextmenu = function (e) {
   e.preventDefault();
   if (site.rightClickDropdownMenu != undefined) {
@@ -231,6 +224,7 @@ document.oncontextmenu = function (e) {
       site.rightClickDropdownMenu.delete();
   }
   site.rightClickDropdownMenu = new site.DropdownMenu(
+    'Action Menu',
     [{
         name: 'Copy',
         handler: document.execCommand('copy')
@@ -239,10 +233,10 @@ document.oncontextmenu = function (e) {
         name: 'Reload',
         handler: location.reload()
       },*/
-      {
+      /*{
         name: 'Go to Global Chat',
         handler: $('#post-stuff-button').trigger('click')
-      }
+      }*/
     ], {
       x: e.clientX + 5,
       y: e.clientY + 5
@@ -250,6 +244,6 @@ document.oncontextmenu = function (e) {
   site.rightClickDropdownMenu.show();
   return false;
 };
-$(document.body).not(".dropdown-menu").click(function () {
-  $('.dropdown-menu').not('#profile-dropdown-menu').hide();
+$(document.body).not(".dropdown-menu").click(function (e) {
+  site.rightClickDropdownMenu.delete();
 });
