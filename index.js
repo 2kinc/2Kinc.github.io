@@ -22,7 +22,12 @@ function Site() {
   }
   this.user;
   this.updateUserInfo = function() {
+    var button = document.createElement('button');
+    button.className = 'mdc-button mdc-ripple-upgraded mdc-button--unelevated';
+    button.innerText = 'Log out of 2K inc';
+    this.elements.userinfo.html('');
     this.elements.userinfo.text('You are signed in as ' + auth.currentUser.displayName + '. ');
+    this.elements.userinfo.append(button);
     this.user = auth.currentUser;
   }
 }
