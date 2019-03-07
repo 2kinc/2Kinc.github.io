@@ -154,7 +154,7 @@ a:hover::after {
     padding: 16px;
     border-radius: 10px;
     max-width: 80%;
-    margin-left: 55px;
+    margin-left: 70px;
 }
 
 .enlargable {
@@ -167,4 +167,9 @@ a:hover::after {
 
 .profile-picture.enlargable:hover {
     transform: scale(1.6);
+}
+
+.message .profile-picture {
+    margin-left: 20px;
+    margin-top: 20px;
 }

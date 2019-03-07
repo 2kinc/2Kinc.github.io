@@ -15,7 +15,8 @@ function Site() {
         image.src = m.profilePicture;
         image.className = 'profile-picture enlargable';
         image.height = 30;
-        var wrapper = document.createElement('p');
+        var wrapper = document.createElement('div');
+        wrapper.className = 'message';
         wrapper.appendChild(image);
         wrapper.appendChild(p);
         wrapper.style.padding = '0.1em 0';
