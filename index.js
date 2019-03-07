@@ -9,8 +9,11 @@ function Site() {
     };
     this.displayMessage = function(m) {
         var p = document.createElement('p');
-        p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
+        p.innerText = m.message;
         p.className = 'message-body enlargable';
+        var messageinfo = document.createElement('p');
+        messageinfo.innerText = m.name + ' at ' + m.time;
+        messageinfo.className = 'message-info';
         var image = document.createElement('img');
         image.src = m.profilePicture;
         image.className = 'profile-picture enlargable';
@@ -19,6 +22,7 @@ function Site() {
         wrapper.className = 'message';
         wrapper.appendChild(image);
         wrapper.appendChild(p);
+        wrapper.appendChild(messageinfo);
         wrapper.style.padding = '0.1em 0';
         document.querySelector('#posts-body').insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
     }

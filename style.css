@@ -173,3 +173,9 @@ a:hover::after {
     margin-left: 20px;
     margin-top: 20px;
 }
+
+.message-info {
+    color: #333;
+    font-size: 0.8em;
+    margin-left: 70px;
+}
