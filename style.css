@@ -147,3 +147,24 @@ a:hover::after {
 .padded {
     padding: 16px;
 }
+
+.message-body {
+    background: #eee;
+    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    padding: 16px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-left: 55px;
+}
+
+.enlargable {
+    transition: all 0.4s ease;
+}
+
+.enlargable:hover {
+    transform: scale(1.1);
+}
+
+.profile-picture.enlargable:hover {
+    transform: scale(1.6);
+}

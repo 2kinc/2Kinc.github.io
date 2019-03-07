@@ -10,9 +10,10 @@ function Site() {
     this.displayMessage = function(m) {
         var p = document.createElement('p');
         p.innerText = m.name + ' said: "' + m.message + '" at ' + m.time;
+        p.className = 'message-body enlargable';
         var image = document.createElement('img');
         image.src = m.profilePicture;
-        image.className = 'profile-picture';
+        image.className = 'profile-picture enlargable';
         image.height = 30;
         var wrapper = document.createElement('p');
         wrapper.appendChild(image);
