@@ -166,7 +166,7 @@ a:hover::after {
 }
 
 .profile-picture.enlargable:hover {
-    transform: scale(1.6);
+    transform: scale(2);
 }
 
 .message .profile-picture {
