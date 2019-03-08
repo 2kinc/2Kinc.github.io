@@ -7,7 +7,8 @@ function Site() {
         userinfo: $('#user-info'),
         globalchatdisabled: $('#global-chat-disabled'),
         yourpropic: $('#your-pro-pic'),
-        bigbanner: $('#big-banner')
+        bigbanner: $('#big-banner'),
+        editprofiledialog: new mdc.dialog.MDCDialog(document.querySelector('#edit-profile-dialog'))
     };
     this.displayMessage = function(m) {
         var p = document.createElement('p');
@@ -204,24 +205,35 @@ auth.onAuthStateChanged(function(user) {
 
 site.elements.yourpropic.click(function() {
     if (site.toggleProfileDropdownMenu) {
-        site.profileDropdownMenu.delete();
+        site.profileDropdownMenu.hide();
         site.toggleProfileDropdownMenu = false;
     } else {
-        site.profileDropdownMenu = new site.DropdownMenu(
-            'Profile',
-            [{
-                    name: 'Username: ' + site.user.displayName,
-                    handler: function() {}
-                },
-                {
-                    name: 'Email: ' + site.user.email,
-                    handler: function() {}
-                }
-            ], {
-                x: -10,
-                y: site.elements.yourpropic.position().top + 55
+        if (site.profileDropdownMenu == undefined) {
+            site.profileDropdownMenu = new site.DropdownMenu(
+                'Profile',
+                [{
+                        name: 'Username: ' + site.user.displayName,
+                        handler: function() {}
+                    },
+                    {
+                        name: 'Email: ' + site.user.email,
+                        handler: function() {}
+                    },
+                    {
+                        name: 'Edit',
+                        handler: function() {}
+                    }
+                ], {
+                    x: -10,
+                    y: site.elements.yourpropic.position().top + 55
+                });
+            site.profileDropdownMenu.el.lastChild.addEventListener('click', function() {
+                site.elements.editprofiledialog.open();
+                site.profileDropdownMenu.hide();
+                site.toggleProfileDropdownMenu = false;
             });
-        site.profileDropdownMenu.el.id = 'profile-dropdown-menu';
+            site.profileDropdownMenu.el.id = 'profile-dropdown-menu';
+        }
         site.profileDropdownMenu.show();
         site.toggleProfileDropdownMenu = true;
     }
@@ -256,5 +268,25 @@ document.oncontextmenu = function(e) {
 };
 
 $(document.body).not(".dropdown-menu").click(function(e) {
-    site.rightClickDropdownMenu.delete();
+    if (site.rightClickDropdownMenu != undefined)
+        site.rightClickDropdownMenu.delete();
 });
+
+$('#edit-profile-dialog-submit-button').click(function() {
+    $('#edit-profile-dialog-username-input').trigger('submit');
+})
+
+$('#edit-profile-dialog-username-input').submit(function() {
+    if ($('#edit-profile-dialog-username-input').val() != '') {
+        auth.currentUser.updateProfile({
+            displayName: $('#edit-profile-dialog-username-input').val()
+        }).then(function() {
+            console.log('success');
+            site.updateUserInfo();
+        }).catch(function(error) {
+            console.log('bad');
+        });;
+        $('#edit-profile-dialog-username-input').val('');
+        site.elements.editprofiledialog.close();
+    }
+})
