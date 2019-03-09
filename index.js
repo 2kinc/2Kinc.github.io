@@ -152,9 +152,9 @@ var totdatabaseref = database.ref().child('tot');
         var d = snapshot.val();
         var e = document.createElement('li');
         e.innerHTML =`<span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.candy)+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.pumpkins)+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.cps)+`</span>`;
+                  <span class="mdc-list-item__text" style="width:25%">`+d.candy+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span>`;
         e.classList.add('mdc-list-item');
        site.elements.prepend(e);
     })
