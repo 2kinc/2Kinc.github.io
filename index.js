@@ -147,6 +147,7 @@ var storage = app.storage();
 var chatdatabaseref = database.ref().child('chat');
 var totdatabaseref = database.ref().child('tot');
 
+//render player high scores on tot
 totdatabaseref.on('child_added', function(snapshot) {
     var val = snapshot.val();
     var key = snapshot.key;
@@ -165,8 +166,11 @@ totdatabaseref.on('child_added', function(snapshot) {
     var hr = document.createElement('hr');
     hr.className = 'mdc-list-divider';
     site.elements.totleaderboard.append(hr);
+    var sorted = totdatabaseref.orderByChild('candy');
+    totdatabaseref.update(sorted);
 });
 
+//if score is changed, update element with id
 totdatabaseref.on('child_changed', function (snapshot) {
     var val = snapshot.val();
     var key = snapshot.key;
@@ -180,7 +184,30 @@ totdatabaseref.on('child_changed', function (snapshot) {
         span.innerText = element.toUpperCase() + ': ' + val[element];
         li.append(span);
     });
+    var sorted = totdatabaseref.orderByChild('candy');
+    totdatabaseref.update(sorted);
+});
+
+//if someone beats another person on ranking, re-render
+totdatabaseref.on('child_moved', function(snapshot) {
+    var val = snapshot.val();
+    var key = snapshot.key;
+    var li = document.createElement('li');
+    li.className = 'mdc-list-item';
+    li.id = key;
+    site.elements.totleaderboard.html('');
+    var items = ['name', 'candy', 'pumpkins', 'cps'];
+    items.forEach(function (element) {
+        var span = document.createElement('span');
+        span.className = 'mdc-list-item__text';
+        span.style.width = 100 / items.length + '%';
+        span.innerText = element.toUpperCase() + ': ' + val[element];
+        li.appendChild(span);
+    });
     site.elements.totleaderboard.append(li);
+    var hr = document.createElement('hr');
+    hr.className = 'mdc-list-divider';
+    site.elements.totleaderboard.append(hr);
 });
 
 //submit post on button click and add to database
