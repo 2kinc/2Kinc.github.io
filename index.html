@@ -64,6 +64,15 @@
                                     </span>
                                     <span class="mdc-tab__ripple"></span>
                                 </button>
+                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="leaderboards-button">
+                                    <span class="mdc-tab__content">
+                                        <span class="mdc-tab__text-label" style="color:white;">Leaderboards</span>
+                                    </span>
+                                    <span class="mdc-tab-indicator">
+                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" style="background:white;"></span>
+                                    </span>
+                                    <span class="mdc-tab__ripple"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -182,6 +191,11 @@
             Sign in to 2K inc. to join the party!
         </div>
     </div>
+    <div id="leaderboards" class="padded" style="display: none;">
+        <h1 class="mdc-typography--headline3 centered">Trick or Treat</h1>
+        <ol class="mdc-list" id="tot-leaderboard">
+        </ol>
+    </div>
 
     <div class="mdc-dialog" id="edit-profile-dialog" role="alertdialog" aria-modal="true" aria-labelledby="edit-profile-dialog-title" aria-describedby="edit-profile-dialog-content">
         <div class="mdc-dialog__container">
@@ -227,24 +241,35 @@
             $('#game').hide();
             $('#about').hide();
             $('#posts').hide();
+            $('#leaderboards').hide();
         });
         $("#game-button").click(function() {
             $('#home').hide();
             $('#game').show();
             $('#about').hide();
             $('#posts').hide();
+            $('#leaderboards').hide();
         });
         $("#about-button").click(function() {
             $('#home').hide();
             $('#game').hide();
             $('#about').show();
             $('#posts').hide();
+            $('#leaderboards').hide();
         });
         $('#post-stuff-button').click(function() {
             $('#home').hide();
             $('#game').hide();
             $('#about').hide();
             $('#posts').show();
+            $('#leaderboards').hide();
+        });
+        $('#leaderboards-button').click(function() {
+            $('#home').hide();
+            $('#game').hide();
+            $('#about').hide();
+            $('#posts').hide();
+            $('#leaderboards').show();
         });
     </script>
 </body>

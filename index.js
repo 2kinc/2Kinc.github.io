@@ -8,7 +8,8 @@ function Site() {
         globalchatdisabled: $('#global-chat-disabled'),
         yourpropic: $('#your-pro-pic'),
         bigbanner: $('#big-banner'),
-        editprofiledialog: new mdc.dialog.MDCDialog(document.querySelector('#edit-profile-dialog'))
+        editprofiledialog: new mdc.dialog.MDCDialog(document.querySelector('#edit-profile-dialog')),
+        totleaderboard: $('#tot-leaderboard')
     };
     this.displayMessage = function(m) {
         var p = document.createElement('p');
@@ -143,7 +144,44 @@ var app = firebase.initializeApp(config);
 var database = app.database();
 var auth = app.auth();
 var storage = app.storage();
-var databaseref = database.ref().child('chat');
+var chatdatabaseref = database.ref().child('chat');
+var totdatabaseref = database.ref().child('tot');
+
+totdatabaseref.on('child_added', function(snapshot) {
+    var val = snapshot.val();
+    var key = snapshot.key;
+    var li = document.createElement('li');
+    li.className = 'mdc-list-item';
+    li.id = key;
+    var items = ['name', 'candy', 'pumpkins', 'cps'];
+    items.forEach(function (element) {
+        var span = document.createElement('span');
+        span.className = 'mdc-list-item__text';
+        span.style.width = 100 / items.length + '%';
+        span.innerText = element.toUpperCase() + ': ' + val[element];
+        li.appendChild(span);
+    });
+    site.elements.totleaderboard.append(li);
+    var hr = document.createElement('hr');
+    hr.className = 'mdc-list-divider';
+    site.elements.totleaderboard.append(hr);
+});
+
+totdatabaseref.on('child_changed', function (snapshot) {
+    var val = snapshot.val();
+    var key = snapshot.key;
+    var li = $('#' + key);
+    li.html('');
+    var items = ['name', 'candy', 'pumpkins', 'cps'];
+    items.forEach(function (element) {
+        var span = document.createElement('span');
+        span.className = 'mdc-list-item__text';
+        span.style.width = 100 / items.length + '%';
+        span.innerText = element.toUpperCase() + ': ' + val[element];
+        li.append(span);
+    });
+    site.elements.totleaderboard.append(li);
+});
 
 //submit post on button click and add to database
 site.elements.submitpost.click(function() {
@@ -155,7 +193,7 @@ site.elements.submitpost.click(function() {
             name: site.user.displayName,
             time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
         };
-        databaseref.push().set(chat);
+        chatdatabaseref.push().set(chat);
         site.elements.postinput.val('');
         site.elements.postinput.trigger('submit');
     } else if (site.user == undefined) {
@@ -172,7 +210,7 @@ site.elements.postinput.keyup(function(e) {
             name: site.user.displayName,
             time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
         };
-        databaseref.push().set(chat);
+        chatdatabaseref.push().set(chat);
         site.elements.postinput.val('');
         site.elements.postinput.trigger('submit');
     } else if (site.user == undefined) {
@@ -181,7 +219,7 @@ site.elements.postinput.keyup(function(e) {
 });
 
 //update chat elements on database update
-databaseref.on('child_added', function(snapshot) {
+chatdatabaseref.on('child_added', function(snapshot) {
     var chat = snapshot.val();
     site.displayMessage(chat);
 });
