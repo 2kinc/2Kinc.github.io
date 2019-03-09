@@ -148,67 +148,16 @@ var chatdatabaseref = database.ref().child('chat');
 var totdatabaseref = database.ref().child('tot');
 
 //render player high scores on tot
-totdatabaseref.on('child_added', function(snapshot) {
-    var val = snapshot.val();
-    var key = snapshot.key;
-    var li = document.createElement('li');
-    li.className = 'mdc-list-item';
-    li.id = key;
-    var items = ['name', 'candy', 'pumpkins', 'cps'];
-    items.forEach(function (element) {
-        var span = document.createElement('span');
-        span.className = 'mdc-list-item__text';
-        span.style.width = 100 / items.length + '%';
-        span.innerText = element.toUpperCase() + ': ' + val[element];
-        li.insertBefore(span, li.firstChild);
-    });
-    site.elements.totleaderboard.append(li);
-    var hr = document.createElement('hr');
-    hr.className = 'mdc-list-divider';
-    site.elements.totleaderboard.append(hr);
-    var sorted = totdatabaseref.orderByChild('candy');
-    totdatabaseref.update(sorted);
-});
-
-//if score is changed, update element with id
-totdatabaseref.on('child_changed', function (snapshot) {
-    var val = snapshot.val();
-    var key = snapshot.key;
-    var li = $('#' + key);
-    li.html('');
-    var items = ['name', 'candy', 'pumpkins', 'cps'];
-    items.forEach(function (element) {
-        var span = document.createElement('span');
-        span.className = 'mdc-list-item__text';
-        span.style.width = 100 / items.length + '%';
-        span.innerText = element.toUpperCase() + ': ' + val[element];
-        li.append(span);
-    });
-    var sorted = totdatabaseref.orderByChild('candy');
-    totdatabaseref.update(sorted);
-});
-
-//if someone beats another person on ranking, re-render
-totdatabaseref.on('child_moved', function(snapshot) {
-    var val = snapshot.val();
-    var key = snapshot.key;
-    var li = document.createElement('li');
-    li.className = 'mdc-list-item';
-    li.id = key;
-    site.elements.totleaderboard.html('');
-    var items = ['name', 'candy', 'pumpkins', 'cps'];
-    items.forEach(function (element) {
-        var span = document.createElement('span');
-        span.className = 'mdc-list-item__text';
-        span.style.width = 100 / items.length + '%';
-        span.innerText = element.toUpperCase() + ': ' + val[element];
-        li.appendChild(span);
-    });
-    site.elements.totleaderboard.append(li);
-    var hr = document.createElement('hr');
-    hr.className = 'mdc-list-divider';
-    site.elements.totleaderboard.append(hr);
-});
+  totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
+        var d = snapshot.val();
+        var e = document.createElement('li');
+        e.innerHTML =`<span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.candy)+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.pumpkins)+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+beautify(d.cps)+`</span>`;
+        e.classList.add('mdc-list-item');
+       site.elements.prepend(e);
+    })
 
 //submit post on button click and add to database
 site.elements.submitpost.click(function() {
