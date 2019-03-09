@@ -146,7 +146,16 @@ var auth = app.auth();
 var storage = app.storage();
 var chatdatabaseref = database.ref().child('chat');
 var totdatabaseref = database.ref().child('tot');
-
+setInterval(function() {site.elements.totleaderboard.html('');  totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
+        var d = snapshot.val();
+        var e = document.createElement('li');
+        e.innerHTML =`<span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+d.candy+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span>`;
+        e.classList.add('mdc-list-item');
+       site.elements.totleaderboard.prepend(e);
+    })}, 1000);
 //render player high scores on tot
   totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
         var d = snapshot.val();
@@ -156,9 +165,8 @@ var totdatabaseref = database.ref().child('tot');
                   <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
                   <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span>`;
         e.classList.add('mdc-list-item');
-       site.elements.prepend(e);
+       site.elements.totleaderboard.prepend(e);
     })
-
 //submit post on button click and add to database
 site.elements.submitpost.click(function() {
     if (site.elements.postinput.val() != '' && site.user != undefined) {
