@@ -160,7 +160,7 @@ totdatabaseref.on('child_added', function(snapshot) {
         span.className = 'mdc-list-item__text';
         span.style.width = 100 / items.length + '%';
         span.innerText = element.toUpperCase() + ': ' + val[element];
-        li.appendChild(span);
+        li.insertBefore(span, li.firstChild);
     });
     site.elements.totleaderboard.append(li);
     var hr = document.createElement('hr');
