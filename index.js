@@ -16,7 +16,7 @@ function Site() {
         p.innerText = m.message;
         p.className = 'message-body enlargable';
         var messageinfo = document.createElement('p');
-        messageinfo.innerHTML = m.name + ' at ' + m.time;
+        messageinfo.innerText = m.name + ' at ' + m.time;
         messageinfo.className = 'message-info';
         var image = document.createElement('img');
         image.src = m.profilePicture;
