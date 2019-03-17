@@ -147,15 +147,14 @@ var storage = app.storage();
 var chatdatabaseref = database.ref().child('chat');
 var totdatabaseref = database.ref().child('tot');
 setInterval(function() {site.elements.totleaderboard.html('');  totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
-        var d = snapshot.val();
-        var e = document.createElement('li');
-        e.innerHTML =`<span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
+    var d = snapshot.val();
+    var e = document.createElement('li');
+    site.elements.totleaderboard.prepend(e);
+    e.outerHTML =`<li class="mdc-list-item"><span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
                   <span class="mdc-list-item__text" style="width:25%">`+d.candy+`</span>
                   <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span>`;
-        e.classList.add('mdc-list-item');
-       site.elements.totleaderboard.prepend(e);
-    })}, 1000);
+                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span></li>`;
+})}, 1000);
 //render player high scores on tot
   totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
         var d = snapshot.val();
