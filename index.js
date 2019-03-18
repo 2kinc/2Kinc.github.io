@@ -185,7 +185,7 @@ site.elements.submitpost.click(function() {
 });
 
 site.elements.postinput.keyup(function(e) {
-    if (e.key == 'Enter' && site.elements.postinput.value != '' && site.user != undefined) {
+    if (e.key == 'Enter' && site.elements.postinput.val() != '' && site.user != undefined) {
         var d = new Date();
         var chat = {
             message: site.elements.postinput.val(),

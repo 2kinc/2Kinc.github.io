@@ -39,7 +39,7 @@
 
 body {
     --mdc-theme-primary:#111;
-    --mdc-them-secondary:#fff;
+    --mdc-theme-secondary:#fff;
     font-family: 'Product Sans', sans-serif;
     margin: 0;
     padding-top: 3em;
