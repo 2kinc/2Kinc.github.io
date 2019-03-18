@@ -7,6 +7,36 @@
     left: 0;
 }
 
+
+/*DON'T DELETE THIS!!!!!!*/
+@keyframes colors {
+    0% {
+        background-color: #ff073a;
+    }
+
+    20% {
+        background-color: #ccff00;
+    }
+
+    40% {
+        background-color: #39ff14;
+    }
+
+    60% {
+        background-color: #1b03a3;
+    }
+
+    80%  {
+        background-color: #bc13fe;
+    }
+
+    100% {
+        background-color: #ff073a;
+    }
+}
+
+/*DON'T DELETE THIS!! the animation i mean*/
+
 body {
     --mdc-theme-primary:#111;
     --mdc-them-secondary:#fff;
@@ -14,6 +44,22 @@ body {
     margin: 0;
     padding-top: 3em;
     overflow-x: hidden;
+    /*background: repeating-linear-gradient(
+        315deg,
+        transparent,
+        transparent 10px,
+        #00000077 10px,
+        #00000077 11px
+    ),
+    repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        #00000077 10px,
+        #00000077 11px
+    );
+    ddddanimation: colors 100s infinite;
+    ddddanimation-timing-function: ease;*/
 }
 
 ::selection {
