@@ -18,7 +18,12 @@ font-size: 1.5em;
 <h1>
 404: Sorry, our trained ducks couldn't find that page. :(
 </h1>
-<p>Quack. Why not go to our <a href="https://2kinc.github.io/">homepage</a>?</p>
-<img src="https://2kinc.github.io/frustrated-duck.png" style="margin-right: 50px; float: right; bottom: 3%; height: 230px;">
+<p>Quack. Why not go to our <a href="https://2kinc.me/">homepage</a>?</p>
+<p id="info"></p>
+<img src="https://2kinc.me/frustrated-duck.png" style="margin-right: 50px; float: right; bottom: 3%; height: 230px;">
+<script>
+var info = document.querySelector('#info');
+info.innerText = 'URL: ' + document.URL + ' - Accessed on ' new Date();
+</script>
 </body>
 </html>
