@@ -40,7 +40,7 @@
 body {
     --mdc-theme-primary:#111;
     --mdc-theme-secondary:#fff;
-    font-family: 'Product Sans', sans-serif;
+    font-family: neue-haas-unica, 'Roboto', sans-serif!important;
     margin: 0;
     padding-top: 3em;
     overflow-x: hidden;
@@ -230,4 +230,8 @@ a:hover::after {
 
 .centered {
     text-align: center;
+}
+
+.mdc-top-app-bar {
+    font-family: neue-haas-unica, 'Roboto', sans-serif !important;
 }
