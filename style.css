@@ -235,3 +235,15 @@ a:hover::after {
 .mdc-top-app-bar {
     font-family: neue-haas-unica, 'Roboto', sans-serif !important;
 }
+
+.chat-username.dev {
+    font-family: 'Roboto Mono', monospace;
+    background: black;
+    border-radius: 4px;
+    color: white;
+    padding: 0.3em;
+}
+
+.chat-username.dev::after {
+    content: ' (Dev)'
+}

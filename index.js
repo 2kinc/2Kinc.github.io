@@ -24,6 +24,7 @@ function Site() {
             user = snap.val();
             var span = document.createElement('span');
             span.innerText = user.displayName;
+            span.className = 'chat-username';
             if (user.dev) {
                 span.classList.add('dev');
             }
