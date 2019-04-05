@@ -11,7 +11,7 @@ function Site() {
         editprofiledialog: new mdc.dialog.MDCDialog(document.querySelector('#edit-profile-dialog')),
         totleaderboard: $('#tot-leaderboard')
     };
-    this.displayMessage = function(m) {
+    this.displayMessage = function (m) {
         var p = document.createElement('p');
         p.innerText = m.message;
         p.className = 'message-body enlargable';
@@ -32,11 +32,11 @@ function Site() {
         document.querySelector('#posts-body').scrollTop = 0;
     }
     this.user;
-    this.updateUserInfo = function() {
+    this.updateUserInfo = function () {
         var button = document.createElement('button');
         button.className = 'mdc-button mdc-ripple-upgraded mdc-button--unelevated';
         button.innerText = 'Log out of 2K inc';
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             auth.signOut();
             location.reload();
         });
@@ -48,7 +48,7 @@ function Site() {
         this.elements.signinwithgoogle.hide();
         this.user = auth.currentUser;
     };
-    this.DropdownMenu = function(title, items, coordinate) {
+    this.DropdownMenu = function (title, items, coordinate) {
         //items is an array like this:
         //[{name: 'OPTION NAME', handler: handler()}]
         //coordinate is an object with {x: ?, y: ?}, x and y are numbers
@@ -64,7 +64,7 @@ function Site() {
         this.el.appendChild(titleEl);
         this.primed = false;
         var that = this;
-        items.forEach(function(element) {
+        items.forEach(function (element) {
             var li = document.createElement('li');
             li.classList.add('mdc-list-item');
             var span = document.createElement('span');
@@ -95,13 +95,13 @@ function Site() {
             this.el.style.top = coordinate.y + 'px';
         }
 
-        this.show = function() {
+        this.show = function () {
             this.el.style.display = 'block';
         };
-        this.hide = function() {
+        this.hide = function () {
             this.el.style.display = 'none';
         };
-        this.delete = function() {
+        this.delete = function () {
             if (this.el.parentNode != null)
                 document.body.removeChild(this.el);
             this.primed = false;
@@ -146,28 +146,30 @@ var auth = app.auth();
 var storage = app.storage();
 var chatdatabaseref = database.ref().child('chat');
 var totdatabaseref = database.ref().child('tot');
-setInterval(function() {site.elements.totleaderboard.html('');  totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
-    var d = snapshot.val();
-    var e = document.createElement('li');
-    site.elements.totleaderboard.prepend(e);
-    e.outerHTML =`<li class="mdc-list-item"><span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.candy+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span></li>`;
-})}, 1000);
-//render player high scores on tot
-  totdatabaseref.orderByChild('candy').on('child_added', function(snapshot) {
+setInterval(function () {
+    site.elements.totleaderboard.html(''); totdatabaseref.orderByChild('candy').on('child_added', function (snapshot) {
         var d = snapshot.val();
         var e = document.createElement('li');
-        e.innerHTML =`<span class="mdc-list-item__text" style="width:25%">`+d.name+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.candy+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.pumpkins+`</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+d.cps+`</span>`;
-        e.classList.add('mdc-list-item');
-       site.elements.totleaderboard.prepend(e);
+        site.elements.totleaderboard.prepend(e);
+        e.outerHTML = `<li class="mdc-list-item"><span class="mdc-list-item__text" style="width:25%">` + d.name + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.candy + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.pumpkins + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.cps + `</span></li>`;
     })
+}, 1000);
+//render player high scores on tot
+totdatabaseref.orderByChild('candy').on('child_added', function (snapshot) {
+    var d = snapshot.val();
+    var e = document.createElement('li');
+    e.innerHTML = `<span class="mdc-list-item__text" style="width:25%">` + d.name + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.candy + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.pumpkins + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.cps + `</span>`;
+    e.classList.add('mdc-list-item');
+    site.elements.totleaderboard.prepend(e);
+})
 //submit post on button click and add to database
-site.elements.submitpost.click(function() {
+site.elements.submitpost.click(function () {
     if (site.elements.postinput.val() != '' && site.user != undefined) {
         var d = new Date();
         var chat = {
@@ -184,7 +186,7 @@ site.elements.submitpost.click(function() {
     }
 });
 
-site.elements.postinput.keyup(function(e) {
+site.elements.postinput.keyup(function (e) {
     if (e.key == 'Enter' && site.elements.postinput.val() != '' && site.user != undefined) {
         var d = new Date();
         var chat = {
@@ -202,18 +204,18 @@ site.elements.postinput.keyup(function(e) {
 });
 
 //update chat elements on database update
-chatdatabaseref.on('child_added', function(snapshot) {
+chatdatabaseref.on('child_added', function (snapshot) {
     var chat = snapshot.val();
     site.displayMessage(chat);
 });
 
 //sign in with google on button click
-site.elements.signinwithgoogle.click(function() {
+site.elements.signinwithgoogle.click(function () {
     auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 });
 
 //detect login state change (sign in or sign out) and update username
-auth.onAuthStateChanged(function(user) {
+auth.onAuthStateChanged(function (user) {
     if (user) {
         //user has logged in
         site.updateUserInfo();
@@ -225,7 +227,7 @@ auth.onAuthStateChanged(function(user) {
     }
 });
 
-site.elements.yourpropic.click(function() {
+site.elements.yourpropic.click(function () {
     if (site.toggleProfileDropdownMenu) {
         site.profileDropdownMenu.hide();
         site.toggleProfileDropdownMenu = false;
@@ -234,22 +236,22 @@ site.elements.yourpropic.click(function() {
             site.profileDropdownMenu = new site.DropdownMenu(
                 'Profile',
                 [{
-                        name: 'Username: ' + site.user.displayName,
-                        handler: function() {}
-                    },
-                    {
-                        name: 'Email: ' + site.user.email,
-                        handler: function() {}
-                    },
-                    {
-                        name: 'Edit',
-                        handler: function() {}
-                    }
+                    name: 'Username: ' + site.user.displayName,
+                    handler: function () { }
+                },
+                {
+                    name: 'Email: ' + site.user.email,
+                    handler: function () { }
+                },
+                {
+                    name: 'Edit',
+                    handler: function () { }
+                }
                 ], {
                     x: -10,
                     y: site.elements.yourpropic.position().top + 55
                 });
-            site.profileDropdownMenu.el.lastChild.addEventListener('click', function() {
+            site.profileDropdownMenu.el.lastChild.addEventListener('click', function () {
                 site.elements.editprofiledialog.open();
                 site.profileDropdownMenu.hide();
                 site.toggleProfileDropdownMenu = false;
@@ -261,7 +263,7 @@ site.elements.yourpropic.click(function() {
     }
 });
 
-document.oncontextmenu = function(e) {
+document.oncontextmenu = function (e) {
     e.preventDefault();
     if (site.rightClickDropdownMenu != undefined) {
         if (site.rightClickDropdownMenu.el.parentNode != null)
@@ -270,9 +272,9 @@ document.oncontextmenu = function(e) {
     site.rightClickDropdownMenu = new site.DropdownMenu(
         'Action Menu',
         [{
-                name: 'Copy',
-                handler: document.execCommand('copy')
-            },
+            name: 'Copy',
+            handler: document.execCommand('copy')
+        },
             /*{
               name: 'Reload',
               handler: location.reload()
@@ -289,23 +291,23 @@ document.oncontextmenu = function(e) {
     return false;
 };
 
-$(document.body).not(".dropdown-menu").click(function(e) {
+$(document.body).not(".dropdown-menu").click(function (e) {
     if (site.rightClickDropdownMenu != undefined)
         site.rightClickDropdownMenu.delete();
 });
 
-$('#edit-profile-dialog-submit-button').click(function() {
+$('#edit-profile-dialog-submit-button').click(function () {
     $('#edit-profile-dialog-username-input').trigger('submit');
 })
 
-$('#edit-profile-dialog-username-input').submit(function() {
+$('#edit-profile-dialog-username-input').submit(function () {
     if ($('#edit-profile-dialog-username-input').val() != '') {
         auth.currentUser.updateProfile({
             displayName: $('#edit-profile-dialog-username-input').val()
-        }).then(function() {
+        }).then(function () {
             console.log('success');
             site.updateUserInfo();
-        }).catch(function(error) {
+        }).catch(function (error) {
             console.log('bad');
         });;
         $('#edit-profile-dialog-username-input').val('');
