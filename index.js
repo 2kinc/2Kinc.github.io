@@ -1,4 +1,5 @@
 function Site() {
+    var that = this;
     this.elements = {
         postinput: $('#post-input'),
         posts: $('#posts-body'),
@@ -16,10 +17,26 @@ function Site() {
         p.innerText = m.message;
         p.className = 'message-body enlargable';
         var messageinfo = document.createElement('p');
-        messageinfo.innerText = m.name + ' at ' + m.time;
+        var user = {
+            displayName: 'Unknown'
+        };
+        database.ref('users/' + m.user).once('value').then(function (snap) {
+            user = snap.val();
+            var span = document.createElement('span');
+            span.innerText = user.displayName;
+            if (user.dev) {
+                span.classList.add('dev');
+            }
+            var span2 = document.createElement('span');
+            span2.innerText = ' at ' + m.time;
+            messageinfo.appendChild(span);
+            messageinfo.appendChild(span2);
+            image.src = user.photoURL;
+        }).catch(function (err) {
+            console.log(err);
+        })
         messageinfo.className = 'message-info';
         var image = document.createElement('img');
-        image.src = m.profilePicture;
         image.className = 'profile-picture enlargable';
         image.height = 30;
         var wrapper = document.createElement('div');
@@ -63,7 +80,7 @@ function Site() {
         titleEl.innerText = title;
         this.el.appendChild(titleEl);
         this.primed = false;
-        var that = this;
+        var dthat = this;
         items.forEach(function (element) {
             var li = document.createElement('li');
             li.classList.add('mdc-list-item');
@@ -71,13 +88,13 @@ function Site() {
             span.classList.add('mdc-list-item__text');
             span.innerText = element.name;
             li.appendChild(span);
-            that.el.appendChild(li);
+            dthat.el.appendChild(li);
 
             function clickHandler() {
-                if (that.primed == true) {
+                if (dthat.primed == true) {
                     element.handler();
                 } else {
-                    that.primed = true;
+                    dthat.primed = true;
                 }
             }
 
@@ -125,6 +142,23 @@ function Site() {
     }
 
     this.elements.bigbanner.typed = new Typed('#big-banner', this.elements.bigbanner.typedjsOptions);
+
+    this.pushMessage = function () {
+        if (this.elements.postinput.val() != '' && this.user != undefined) {
+            var d = new Date();
+            var chat = {
+                message: that.elements.postinput.val(),
+                user: auth.currentUser.uid,
+                time: d.toLocaleTimeString() + ' ' + d.toLocaleDateString()
+            };
+            chatdatabaseref.push().set(chat);
+            that.elements.postinput.val('');
+            that.elements.postinput.trigger('submit');
+            console.log(chat);
+        } else if (site.user == undefined) {
+            alert('Sign in to 2K inc. to chat!');
+        }
+    }
 }
 
 var site = new Site();
@@ -169,37 +203,14 @@ totdatabaseref.orderByChild('candy').on('child_added', function (snapshot) {
     site.elements.totleaderboard.prepend(e);
 })
 //submit post on button click and add to database
+
 site.elements.submitpost.click(function () {
-    if (site.elements.postinput.val() != '' && site.user != undefined) {
-        var d = new Date();
-        var chat = {
-            message: site.elements.postinput.val(),
-            profilePicture: site.user.photoURL,
-            name: site.user.displayName,
-            time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
-        };
-        chatdatabaseref.push().set(chat);
-        site.elements.postinput.val('');
-        site.elements.postinput.trigger('submit');
-    } else if (site.user == undefined) {
-        alert('Sign in to 2K inc. to chat!');
-    }
+    site.pushMessage();
 });
 
 site.elements.postinput.keyup(function (e) {
-    if (e.key == 'Enter' && site.elements.postinput.val() != '' && site.user != undefined) {
-        var d = new Date();
-        var chat = {
-            message: site.elements.postinput.val(),
-            profilePicture: site.user.photoURL,
-            name: site.user.displayName,
-            time: d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
-        };
-        chatdatabaseref.push().set(chat);
-        site.elements.postinput.val('');
-        site.elements.postinput.trigger('submit');
-    } else if (site.user == undefined) {
-        alert('Sign in to 2K inc. to chat!');
+    if (e.key == 'Enter') {
+        site.pushMessage();
     }
 });
 
