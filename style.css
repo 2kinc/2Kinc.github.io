@@ -243,6 +243,12 @@ a:hover::after {
     border: 2px white solid;
 }
 
+.trait._joemama::after {
+    background: yellow;
+    color: black;
+    content: 'Joe Mama';
+}
+
 .trait._dev::after {
     background: black;
     color: white;
