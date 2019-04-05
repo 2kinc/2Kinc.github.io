@@ -1,29 +1,57 @@
 <!doctype html>
 <html>
-<head>
-<title>404 :(</title>
-<link rel="shortcut icon" href="404.png" type="image/x-icon">
-<style>
-body {
-font-family: Roboto, sans-serif;
-font-size: 3em;
-}
 
-h1 {
-font-size: 1.5em;
-}
-</style>
+<head>
+    <title>404 :(</title>
+    <link rel="shortcut icon" href="404.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            font-size: 3em;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+    </style>
 </head>
+
 <body>
-<h1>
-404: Sorry, our trained ducks couldn't find that page. :(
-</h1>
-<p>Quack. Why not go to our <a href="https://2kinc.me/">homepage</a>?</p>
-<p id="info"></p>
-<img src="https://2kinc.me/frustrated-duck.png" style="margin-right: 50px; float: right; bottom: 3%; height: 230px;">
-<script>
-var info = document.querySelector('#info');
-info.innerText = 'URL: ' + document.URL + ' - Accessed on ' + new Date() + '. ';
-</script>
+    <h1>
+        404: Sorry, our trained ducks couldn't find that page. :(
+    </h1>
+    <p>Quack. Why not go to our <a href="https://2kinc.me/">homepage</a>?</p>
+    <p id="info"></p>
+    <img src="https://2kinc.me/frustrated-duck.png"
+        style="margin-right: 50px; float: right; bottom: 3%; height: 230px;">
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyADD6YWKrzibRMwJNi1FwUR0jcR0GitZPI",
+            authDomain: "k-inc-232222.firebaseapp.com",
+            databaseURL: "https://k-inc-232222.firebaseio.com",
+            projectId: "k-inc-232222",
+            storageBucket: "",
+            messagingSenderId: "827804821456"
+        };
+
+        //firebase variables
+        var app = firebase.initializeApp(config);
+        var database = app.database();
+        var auth = app.auth();
+        var storage = app.storage();
+        var info = document.querySelector('#info');
+        info.innerText = 'URL: ' + document.URL + ' - Accessed on ' + new Date() + '. ';
+        if (document.URL.indexOf('https://2kinc.me/user/') == 0) {
+            database.ref('users/' + document.URL.slice(21)).once('value').then(function (snapshot){
+                var user = snapshot.val();
+                document.body.innerHTML = 'USER! <br> Name: ' + user.displayName;
+            }).catch(function (){
+                document.body.innerText = err;
+            });
+        }
+    </script>
 </body>
+
 </html>
