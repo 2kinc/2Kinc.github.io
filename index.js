@@ -25,8 +25,12 @@ function Site() {
             var span = document.createElement('span');
             span.innerText = user.displayName;
             span.className = 'chat-username';
-            if (user.dev) {
-                span.classList.add('dev');
+            for (var trait in user.traits) {
+                if (user.traits[trait]) {
+                    var s = document.createElement('span');
+                    s.className = 'trait ' + '_' + trait;
+                    span.appendChild(s);
+                }
             }
             var span2 = document.createElement('span');
             span2.innerText = ' at ' + m.time;
@@ -35,7 +39,7 @@ function Site() {
             image.src = user.photoURL;
         }).catch(function (err) {
             console.log(err);
-        })
+        });
         messageinfo.className = 'message-info';
         var image = document.createElement('img');
         image.className = 'profile-picture enlargable';

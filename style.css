@@ -236,14 +236,21 @@ a:hover::after {
     font-family: neue-haas-unica, 'Roboto', sans-serif !important;
 }
 
-.chat-username.dev {
-    font-family: 'Roboto Mono', monospace;
-    background: black;
+.trait::after {
     border-radius: 4px;
-    color: white;
-    padding: 0.3em;
+    padding: 2px;
+    margin-left: 0.5em;
 }
 
-.chat-username.dev::after {
-    content: ' (Dev)'
+.trait._dev::after {
+    background: black;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    content: 'Dev';
+}
+
+.trait._2kinc::after {
+    background: black;
+    color: white;
+    content: '2K inc.';
 }
