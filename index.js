@@ -159,7 +159,6 @@ function Site() {
             chatdatabaseref.push().set(chat);
             that.elements.postinput.val('');
             that.elements.postinput.trigger('submit');
-            console.log(chat);
         } else if (site.user == undefined) {
             alert('Sign in to 2K inc. to chat!');
         }
