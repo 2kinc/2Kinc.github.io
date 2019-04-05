@@ -69,11 +69,10 @@ function Site() {
         this.elements.yourpropic.show();
         this.elements.signinwithgoogle.hide();
         this.user = auth.currentUser;
+        var user = auth.currentUser;
         var ref = database.ref('users/' + user.uid);
         ref.child('displayName').set(user.displayName);
         ref.child('photoURL').set(user.photoURL);
-        if (site.elements.loading.text() == 'Sign in to 2K inc!')
-            site.elements.loading.hide();
         database.ref('users/' + auth.currentUser.uid + '/banned').once('value').then(function (snap) {
             var banned = snap.val();
             if (banned == true) {
