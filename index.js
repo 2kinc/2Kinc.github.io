@@ -43,7 +43,7 @@ function Site() {
         messageinfo.className = 'message-info';
         var image = document.createElement('img');
         image.className = 'profile-picture enlargable';
-        image.height = 30;
+        image.height = 45;
         var wrapper = document.createElement('div');
         wrapper.className = 'message';
         wrapper.appendChild(image);

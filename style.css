@@ -94,14 +94,12 @@ a {
 }
 
 .profile-picture {
-    border-width: 4px;
-    border-style: solid;
-    border-color: rgb(150, 150, 200);
-    border-radius: 30px;
+    border: 2px white solid;
+    border-radius: 50%;
     float: left;
     margin: 5px;
-    max-width: 30px;
-    max-width: 30px;
+    max-width: 45px;
+    max-width: 45px;
 }
 
 #sign-in-with-google {
@@ -212,7 +210,7 @@ a {
     border-radius: 4px;
     border: 2px white solid;
     max-width: 80%;
-    margin-left: 70px;
+    margin-left: 100px;
 }
 
 .enlargable {
@@ -224,7 +222,7 @@ a {
 }
 
 .profile-picture.enlargable:hover {
-    transform: scale(2);
+    transform: scale(1.8);
 }
 
 .message .profile-picture {
@@ -233,9 +231,8 @@ a {
 }
 
 .message-info {
-    color: #333;
     font-size: 0.8em;
-    margin-left: 70px;
+    margin-left: 100px;
 }
 
 .centered {
