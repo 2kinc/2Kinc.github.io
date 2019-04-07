@@ -138,6 +138,7 @@ a {
 #your-pro-pic {
     margin-top: 0px;
     cursor: pointer;
+    margin: 6px;
 }
 
 @keyframes blink {

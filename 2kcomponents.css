@@ -163,3 +163,24 @@ k-tab.active,
     background: white;
     color: black;
 }
+
+::-webkit-scrollbar {
+    background: black;
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: 2px white solid;
+    min-width: 10px;
+    min-height: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+::-webkit-scrollbar-corner {
+    background: black;
+}
