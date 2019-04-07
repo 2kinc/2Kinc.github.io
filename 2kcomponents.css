@@ -1,0 +1,46 @@
+k-card,
+.k-card {
+    display: block;
+    margin: 8px;
+    border: 2px white solid;
+    border-radius: 4px;
+    background: black;
+    color: white;
+}
+
+k-card-title,
+.k-card-title {
+    font-size: 1.5em;
+    padding: 10px;
+    display: block;
+}
+
+k-card-content,
+.k-card-content {
+    display: block;
+    padding: 10px;
+    padding-top: 0;
+}
+
+k-card-bottom,
+.k-card-bottom {
+    border-top: 2px white solid;
+    display: block;
+    padding: 10px;
+}
+
+k-button,
+.k-button {
+    border: 2px white solid;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    cursor: pointer;
+}
+
+k-button:hover,
+.k-button:hover {
+    color: black;
+    background: white;
+}
