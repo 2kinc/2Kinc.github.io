@@ -187,3 +187,20 @@ k-tab.active,
 ::-webkit-scrollbar-corner {
     background: var(--color-main);
 }
+
+k-input,
+.k-input {
+    border: none;
+    border-bottom: 2px var(--color-secondary) solid;
+    color: var(--color-secondary);
+    background: var(--color-main);
+    padding: 0.6em 0.5em;
+}
+
+k-input:focus,
+.k-input:focus {
+    outline: none;
+    background: var(--color-secondary);
+    color: var(--color-main);
+    border-radius: 4px;
+}

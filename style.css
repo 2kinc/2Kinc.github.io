@@ -74,9 +74,7 @@ a {
 }
 
 #submit-post-button {
-    float: right;
-    bottom: 4em;
-    right: 4em;
+    display: inline-block;
 }
 
 #posts-body {
@@ -93,7 +91,7 @@ a {
 }
 
 .profile-picture {
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     border-radius: 50%;
     float: left;
     margin: 5px;
@@ -113,21 +111,21 @@ a {
     padding: 1em 0;
     top: 1em;
     position: absolute;
-    background: black;
-    color: white;
+    background: var(--color-main);
+    color: var(--color-secondary);
 }
 
 .dropdown-menu {
     position: absolute;
     cursor: pointer;
     user-select: none;
-    background: black;
-    border: 2px white solid;
+    background: var(--color-main);
+    border: 2px var(--color-secondary) solid;
     border-radius: 4px;
 }
 
 .dropdown-menu li {
-    border-bottom: 2px white solid;
+    border-bottom: 2px var(--color-secondary) solid;
 }
 
 .dropdown-menu li:last-child {
@@ -157,10 +155,10 @@ a {
 #big-banner {
     height: 2em;
     font-size: 6em;
-    color: white;
+    color: var(--color-secondary);
     padding: 1em 0;
     text-align: center;
-    background: black;
+    background: var(--color-main);
     font-family: 'Roboto Mono', monospace;
     margin: 0 !important;
     user-select: none;
@@ -190,7 +188,7 @@ a {
 }
 
 .dropdown-menu-title {
-    background: white;
+    background: var(--color-secondary);
     color: #000;
     text-transform: uppercase;
     font-family: 'Roboto Mono', monospace;
@@ -205,11 +203,11 @@ a {
 }
 
 .message-body {
-    background: black;
+    background: var(--color-main);
     box-shadow: 8px 14px 38px rgba(39, 44, 49, .06), 1px 3px 8px rgba(39, 44, 49, .03);
     padding: 16px;
     border-radius: 4px;
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     max-width: 80%;
     margin-left: 100px;
 }
@@ -253,7 +251,7 @@ a {
 
 .trait._joemama::after {
     background: yellow;
-    color: black;
+    color: var(--color-main);
     content: 'Joe Mama';
 }
 

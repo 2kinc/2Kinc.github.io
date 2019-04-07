@@ -149,15 +149,8 @@
     <div id="posts" style="display: none;" class="padded">
         <div id="posts-body"></div>
         <div id="posts-sending">
-            <div class="mdc-text-field" style="width: 80%;">
-                <input type="text" id="post-input" class="mdc-text-field__input" maxlength="150">
-                <label class="mdc-floating-label" for="post-input">Type your message...</label>
-                <div class="mdc-line-ripple"></div>
-            </div>
-            <div class="mdc-text-field-helper-line">
-                <div class="mdc-text-field-character-counter">0 / 150</div>
-            </div>
-            <k-button>Send</k-button>
+            <input id="post-input" class="k-input" maxlength="150" placeholder="Say something!" style="width: 80%;">
+            <k-button id="submit-post-button">Send</k-button>
         </div>
         <div id="global-chat-disabled">
             Sign in to 2K inc. to join the party!
@@ -208,7 +201,6 @@
     <script src="2kcomponents.js"></script>
     <script src="index.js"></script>
     <script>
-        mdc.textField.MDCTextField.attachTo(document.querySelector('#posts-sending'));
         mdc.textField.MDCTextField.attachTo(document.querySelector('#edit-profile-dialog-content'));
 
         $("#home-button").click(function () {
