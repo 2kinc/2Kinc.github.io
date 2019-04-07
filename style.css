@@ -26,7 +26,7 @@
         background-color: #1b03a3;
     }
 
-    80%  {
+    80% {
         background-color: #bc13fe;
     }
 
@@ -38,9 +38,11 @@
 /*DON'T DELETE THIS!! the animation i mean*/
 
 body {
-    --mdc-theme-primary:#111;
-    --mdc-theme-secondary:#fff;
-    font-family: neue-haas-unica, 'Roboto', sans-serif!important;
+    --mdc-theme-primary: #111;
+    --mdc-theme-secondary: #fff;
+    background: black;
+    color: white;
+    font-family: neue-haas-unica, 'Roboto', sans-serif !important;
     margin: 0;
     padding-top: 3em;
     overflow-x: hidden;
@@ -72,10 +74,6 @@ a {
     color: #0d47a1;
 }
 
-a:hover::after {
-    content: " - please click me!"
-}
-
 #submit-post-button {
     float: right;
     bottom: 4em;
@@ -98,7 +96,7 @@ a:hover::after {
 .profile-picture {
     border-width: 4px;
     border-style: solid;
-    border-color: rgb(150,150,200);
+    border-color: rgb(150, 150, 200);
     border-radius: 30px;
     float: left;
     margin: 5px;
@@ -125,6 +123,17 @@ a:hover::after {
     position: absolute;
     cursor: pointer;
     user-select: none;
+    background: black;
+    border: 2px white solid;
+    border-radius: 4px;
+}
+
+.dropdown-menu li {
+    border-bottom: 2px white solid;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom-width: 0;
 }
 
 #your-pro-pic {
@@ -136,9 +145,11 @@ a:hover::after {
     0% {
         opacity: 0;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 1;
     }
@@ -152,7 +163,7 @@ a:hover::after {
     text-align: center;
     background: black;
     font-family: 'Roboto Mono', monospace;
-    margin: 0!important;
+    margin: 0 !important;
     user-select: none;
     width: 100vw;
     margin-left: -50vw;
@@ -180,15 +191,13 @@ a:hover::after {
 }
 
 .dropdown-menu-title {
-    background: #ccc;
+    background: white;
     color: #000;
     text-transform: uppercase;
     font-family: 'Roboto Mono', monospace;
     font-size: 0.8em;
     font-weight: bolder;
     padding: 5px 16px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     cursor: initial;
 }
 
@@ -197,10 +206,11 @@ a:hover::after {
 }
 
 .message-body {
-    background: #eee;
-    box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
+    background: black;
+    box-shadow: 8px 14px 38px rgba(39, 44, 49, .06), 1px 3px 8px rgba(39, 44, 49, .03);
     padding: 16px;
-    border-radius: 10px;
+    border-radius: 4px;
+    border: 2px white solid;
     max-width: 80%;
     margin-left: 70px;
 }
@@ -259,4 +269,42 @@ a:hover::after {
     background: black;
     color: white;
     content: '2K inc.';
+}
+
+k-card {
+    display: block;
+    margin: 8px;
+    border: 2px white solid;
+    border-radius: 4px;
+    background: black;
+    color: white;
+}
+
+k-card-title {
+    font-size: 1.5em;
+    padding: 10px;
+    display: block;
+}
+
+k-card-bottom,
+.k-card-bottom {
+    border-top: 2px white solid;
+    display: block;
+}
+
+k-button,
+.k-button {
+    border: 2px white solid;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    margin: 6px;
+    padding: 0.3em 0.5em;
+    cursor: pointer;
+}
+
+k-button:hover,
+.k-button:hover {
+    color: black;
+    background: white;
 }
