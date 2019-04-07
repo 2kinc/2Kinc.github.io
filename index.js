@@ -56,8 +56,7 @@ function Site() {
     }
     this.user;
     this.updateUserInfo = function () {
-        var button = document.createElement('button');
-        button.className = 'mdc-button mdc-ripple-upgraded mdc-button--unelevated';
+        var button = document.createElement('k-button');
         button.innerText = 'Log out of 2K inc';
         button.addEventListener('click', function () {
             auth.signOut();

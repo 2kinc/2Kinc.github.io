@@ -38,10 +38,9 @@
 /*DON'T DELETE THIS!! the animation i mean*/
 
 body {
-    --mdc-theme-primary: #111;
-    --mdc-theme-secondary: #fff;
-    background: black;
-    color: white;
+    --color-main: black;
+    --color-secondary: white;
+    --color-background: black;
     font-family: neue-haas-unica, 'Roboto', sans-serif !important;
     margin: 0;
     padding-top: 3em;

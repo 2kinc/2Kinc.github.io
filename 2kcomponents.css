@@ -54,14 +54,19 @@
     }
 }
 
+body {
+    background: var(--color-background);
+    color: var(--color-secondary);
+}
+
 k-card,
 .k-card {
     display: block;
     margin: 16px;
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     border-radius: 4px;
-    background: black;
-    color: white;
+    background: var(--color-main);
+    color: var(--color-secondary);
 }
 
 k-card-title,
@@ -80,16 +85,16 @@ k-card-content,
 
 k-card-bottom,
 .k-card-bottom {
-    border-top: 2px white solid;
+    border-top: 2px var(--color-secondary) solid;
     display: block;
     padding: 10px;
 }
 
 k-button,
 .k-button {
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     border-radius: 4px;
-    color: white;
+    color: var(--color-secondary);
     display: inline-block;
     padding: 0.3em 0.5em;
     cursor: pointer;
@@ -97,8 +102,8 @@ k-button,
 
 k-button:hover,
 .k-button:hover {
-    color: black;
-    background: white;
+    color: var(--color-main);
+    background: var(--color-secondary);
 }
 
 .k-rainbow {
@@ -123,7 +128,7 @@ k-tab,
     width: 10em;
     user-select: none;
     cursor: pointer;
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     border-bottom: none;
     margin-left: -4px;
     border-top-left-radius: 6px;
@@ -138,8 +143,8 @@ k-navbar,
     left: 0;
     height: auto;
     width: 100%;
-    border-bottom: 2px white solid;
-    background: black;
+    border-bottom: 2px var(--color-secondary) solid;
+    background: var(--color-main);
 }
 
 k-navbar-title,
@@ -158,27 +163,27 @@ k-navbar-right,
 
 k-tab.active,
 .k-tab.active {
-    background: white;
-    color: black;
+    background: var(--color-secondary);
+    color: var(--color-main);
 }
 
 ::-webkit-scrollbar {
-    background: black;
+    background: var(--color-main);
     width: 10px;
     height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    border: 2px white solid;
+    border: 2px var(--color-secondary) solid;
     min-width: 10px;
     min-height: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: white;
+    background: var(--color-secondary);
 }
 
 ::-webkit-scrollbar-corner {
-    background: black;
+    background: var(--color-main);
 }
