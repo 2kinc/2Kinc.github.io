@@ -115,6 +115,10 @@ k-button:hover,
     animation: k-rainbow-anim 18s ease infinite;
 }
 
+.k-capsule {
+    border-radius: 500px;
+}
+
 k-tabs,
 .k-tabs {
     max-height: 3em;

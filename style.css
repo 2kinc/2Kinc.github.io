@@ -90,6 +90,10 @@ a {
     height: 15vh;
 }
 
+#post-input {
+    width: 92%;
+}
+
 .profile-picture {
     border: 2px var(--color-secondary) solid;
     border-radius: 50%;
@@ -101,6 +105,8 @@ a {
 
 #sign-in-with-google {
     width: 8em;
+    text-align: center;
+    margin: 10px;
 }
 
 #global-chat-disabled {
