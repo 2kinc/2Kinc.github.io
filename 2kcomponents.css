@@ -123,14 +123,11 @@ k-tab,
     width: 10em;
     user-select: none;
     cursor: pointer;
-    border-right: 2px white solid;
-    margin: 0;
+    border: 2px white solid;
+    border-bottom: none;
     margin-left: -4px;
-}
-
-k-tab:last-child,
-.k-tab:last-child {
-    border-right: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 k-navbar,
@@ -142,6 +139,7 @@ k-navbar,
     height: auto;
     width: 100%;
     border-bottom: 2px white solid;
+    background: black;
 }
 
 k-navbar-title,
