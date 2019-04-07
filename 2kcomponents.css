@@ -1,4 +1,4 @@
-@-webkit-keyframesk-rainbow-anim {
+@-webkit-keyframes k-rainbow-anim {
     0% {
         background-position: 0% 82%
     }
@@ -108,4 +108,58 @@ k-button:hover,
     -z-animation: k-rainbow-anim 18s ease infinite;
     -o-animation: k-rainbow-anim 18s ease infinite;
     animation: k-rainbow-anim 18s ease infinite;
+}
+
+k-tabs,
+.k-tabs {
+    max-height: 3em;
+}
+
+k-tab,
+.k-tab {
+    display: inline-block;
+    padding: 1em 0;
+    text-align: center;
+    width: 10em;
+    user-select: none;
+    cursor: pointer;
+    border-right: 2px white solid;
+    margin: 0;
+    margin-left: -4px;
+}
+
+k-tab:last-child,
+.k-tab:last-child {
+    border-right: none;
+}
+
+k-navbar,
+.k-navbar {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    border-bottom: 2px white solid;
+}
+
+k-navbar-title,
+.k-navbar-title {
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em;
+}
+
+k-navbar-right,
+.k-navbar-right {
+    display: flex;
+    float: right;
+    width: auto;
+}
+
+k-tab.active,
+.k-tab.active {
+    background: white;
+    color: black;
 }

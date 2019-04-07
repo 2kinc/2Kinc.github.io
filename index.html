@@ -22,81 +22,23 @@
 </head>
 
 <body>
-    <header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z3">
-        <div class="mdc-top-app-bar__row">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <span class="mdc-top-app-bar__title">2K inc</span>
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end"
-                style="height: 100%;bottom: 0;">
-                <div class="mdc-tab-bar" role="tablist">
-                    <div class="mdc-tab-scroller">
-                        <div class="mdc-tab-scroller__scroll-area">
-                            <div class="mdc-tab-scroller__scroll-content">
-                                <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0"
-                                    id="home-button">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label" style="color:white;">Home</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                                            style="background:white;"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </button>
-                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="game-button">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label" style="color:white;">Games</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator">
-                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                                            style="background:white;"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </button>
-                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0" id="about-button">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label" style="color:white;">About</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator">
-                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                                            style="background:white;"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </button>
-                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0"
-                                    id="post-stuff-button">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label" style="color:white;">Global Chat</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator">
-                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                                            style="background:white;"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </button>
-                                <button class="mdc-tab" role="tab" aria-selected="true" tabindex="0"
-                                    id="leaderboards-button">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label" style="color:white;">Leaderboards</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator">
-                                        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                                            style="background:white;"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="user-button"></div>
-                <k-button class="k-rainbow" id="sign-in-with-google">Sign
-                    in</k-button>
-                <img src="" class="profile-picture" id="your-pro-pic" style="display:none;" height="30">
-            </section>
-        </div>
-    </header>
+    <k-navbar>
+        <k-navbar-title>2K inc</k-navbar-title>
+
+        <k-navbar-right>
+            <k-tabs>
+                <k-tab id="home-button">Home</k-tab>
+                <k-tab id="about-button">About</k-tab>
+                <k-tab id="game-button">Games</k-tab>
+                <k-tab id="post-stuff-button">Global Chat</k-tab>
+                <k-tab id="leaderboards-button">Leaderboards</k-tab>
+            </k-tabs>
+            <img src="" class="profile-picture" id="your-pro-pic" style="display:none;" height="30">
+            <k-button class="k-rainbow" id="sign-in-with-google">Sign
+                in</k-button>
+        </k-navbar-right>
+        </section>
+    </k-navbar>
     <div id="home">
         <div id="big-banner"></div>
         <div class="padded">
@@ -104,7 +46,7 @@
             <p>A company making games for your pleasure.</p>
             <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
             <p id="user-info"></p>
-            <a class="github-button" href="https://github.com/2kinc" data-size="large"
+            <a class="k-button k-rainbow" href="https://github.com/2kinc" data-size="large"
                 aria-label="Check out @2kinc on GitHub">Check us out on GitHub!</a>
         </div>
     </div>
@@ -171,8 +113,7 @@
                 more!
             </k-card-content>
             <k-card-bottom>
-                <a class="k-button"
-                    href="https://2kinc.me/spaghetti-js/">Yummy!</a>
+                <a class="k-button" href="https://2kinc.me/spaghetti-js/">Yummy!</a>
             </k-card-bottom>
         </k-card>
     </div>
@@ -264,9 +205,9 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="2kcomponents.js"></script>
     <script src="index.js"></script>
     <script>
-        mdc.tabBar.MDCTabBar.attachTo(document.querySelector('.mdc-tab-bar'));
         mdc.textField.MDCTextField.attachTo(document.querySelector('#posts-sending'));
         mdc.textField.MDCTextField.attachTo(document.querySelector('#edit-profile-dialog-content'));
 

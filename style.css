@@ -114,7 +114,8 @@ a {
     padding: 1em 0;
     top: 1em;
     position: absolute;
-    background: #fff;
+    background: black;
+    color: white;
 }
 
 .dropdown-menu {
@@ -271,3 +272,4 @@ a {
 #tot-leaderboard {
     color: white;
 }
+

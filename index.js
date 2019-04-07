@@ -52,6 +52,7 @@ function Site() {
         wrapper.style.padding = '0.1em 0';
         document.querySelector('#posts-body').insertBefore(wrapper, document.querySelector('#posts-body').firstChild);
         document.querySelector('#posts-body').scrollTop = 0;
+        $('#post-stuff-button').addClass('k-rainbow');
     }
     this.user;
     this.updateUserInfo = function () {
