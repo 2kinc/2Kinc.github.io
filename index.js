@@ -201,8 +201,8 @@ setInterval(function () {
         site.elements.totleaderboard.prepend(e);
         e.outerHTML = `<li class="mdc-list-item"><span class="mdc-list-item__text" style="width:25%">` + d.name + `</span>
                   <span class="mdc-list-item__text" style="width:25%">`+ d.candy + `</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+ d.pumpkins + `</span>
-                  <span class="mdc-list-item__text" style="width:25%">`+ d.cps + `</span></li>`;
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.pump + `</span>
+                  <span class="mdc-list-item__text" style="width:25%">`+ d.costumes * d.tot_ers + `</span></li>`;
     })
 }, 1000);
 //render player high scores on tot
