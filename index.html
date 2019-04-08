@@ -38,161 +38,168 @@
         </k-navbar-right>
         </section>
     </k-navbar>
-    <div id="home">
-        <div id="big-banner"></div>
-        <div class="padded">
-            <h2 class="mdc-typography--headline5">2K inc</h2>
-            <p>A company making games for your pleasure.</p>
-            <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
-            <p id="user-info"></p>
-            <a class="k-button k-rainbow" href="https://github.com/2kinc" data-size="large"
-                aria-label="Check out @2kinc on GitHub">Check us out on GitHub!</a>
-        </div>
-    </div>
-    <div id="game" style="display:none;" class="padded">
-        <h2 class="mdc-typography--headline5">Games we have made</h2>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>
-                E. X. P.
-            </k-card-title>
-            <k-card-content>
-                Create your own world, and don't starve!
-                Warning: contains flashing effects.
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button" href="https://2kinc.me/exp-game/">Check it out! (Pre-Alpha)</a>
-            </k-card-bottom>
-        </k-card>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>2K Space</k-card-title>
-            <k-card-content>
-                Team up with friends and create giant pixel art on a massive global canvas.
-                Coming soon: 2K Hyperspace. Draw pixel art and let AI link it to a website!
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button" href="https://2kinc.me/space/">Nice!</a>
-            </k-card-bottom>
-        </k-card>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>Trick or treat</k-card-title>
-            <k-card-content>
-                Go trick or treating whenever
-                you want on your computer!
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button"
-                    href="https://chrome.google.com/webstore/detail/trick-or-treat/migjjgahlnpolhmacicegfjdpbbnhngc">Over
-                    Here</a>
-            </k-card-bottom>
-        </k-card>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>Kalkulator</k-card-title>
-            <k-card-content>
-                A calculator whenever you need one!
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button"
-                    href="https://chrome.google.com/webstore/detail/kalkulator/ilidgdcdnofmfpmkmbhoemmdmgkjgfcb">Get
-                    it here</a>
-            </k-card-bottom>
-        </k-card>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>Critters</k-card-title>
-            <k-card-content>
-                Critters is a framework for fluent AI in a JS environment.
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button" href="https://2kinc.me/critters/">Cool!</a>
-            </k-card-bottom>
-        </k-card>
-        <k-card style="display: inline-block; width: 30%">
-            <k-card-title>spaghetti.js</k-card-title>
-            <k-card-content>
-                spaghetti.js is a framework for JS strings. Use it to lock values, encrypt strings, and
-                more!
-            </k-card-content>
-            <k-card-bottom>
-                <a class="k-button" href="https://2kinc.me/spaghetti-js/">Yummy!</a>
-            </k-card-bottom>
-        </k-card>
-    </div>
-    <div id="about" style="display:none;" class="padded">
-        <h2 class="mdc-typography--headline5">About us</h2>
-        <p>We make games and have fun doing it! Our newest game, <a href="exp-game">E. X. P.</a>, is in pre-alpha.
-            Please pay a visit sometime soon, it will be constantly updated. All our games are free and we hope you
-            enjoy them. Our (small) army of awesome coders include: </p>
-        <ul class="mdc-list">
-            <li class="mdc-list-item" tabindex="0">
-                <a class="mdc-list-item__text" href="https://www.github.com/iamcev">iamcev, lead developer and
-                    designer</a>
-            </li>
-            <li class="mdc-list-item">
-                <a class="mdc-list-item__text" href="https://www.github.com/Craftingexpert1">Craftingexpert1, iamcev's
-                    second in command coder (The only one who can defeat him)</a>
-            </li>
-            <li class="mdc-list-item">
-                <a class="mdc-list-item__text" href="https://www.github.com/Lumby1">Lumby1, duck enthusiast and expert
-                    coder in the making</span></a>
-            </li>
-            <li class="mdc-list-item">
-                <a class="mdc-list-item__text" href="https://www.github.com/DimaTheGoat">DimaTheGoat, puffin enthusiast
-                    and another expert
-                    coder in the making. Also Director of Marketing</span></a>
-            </li>
-            <li class="mdc-list-item">
-                <a class="mdc-list-item__text" href="https://www.github.com/MaxSteelCoolDan">MaxSteelCoolDan, Makes
-                    Steel Strong code for everybody!</span></a>
-            </li>
-        </ul>
-    </div>
-    <div id="posts" style="display: none;" class="padded">
-        <div id="posts-body"></div>
-        <div id="posts-sending">
-            <input id="post-input" class="k-input" maxlength="150" placeholder="Say something!">
-            <k-button id="submit-post-button">Send</k-button>
-        </div>
-        <div id="global-chat-disabled">
-            Sign in to 2K inc. to join the party!
-        </div>
-    </div>
-    <div id="leaderboards" class="padded" style="display: none;">
-        <h1 class="mdc-typography--headline3 centered">Trick or Treat</h1>
-        <ol class="mdc-list" id="tot-leaderboard">
-        </ol>
-    </div>
-
-    <div class="mdc-dialog" id="edit-profile-dialog" role="alertdialog" aria-modal="true"
-        aria-labelledby="edit-profile-dialog-title" aria-describedby="edit-profile-dialog-content">
-        <div class="mdc-dialog__container">
-            <div class="mdc-dialog__surface">
-                <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
-                <h2 class="mdc-dialog__title" id="edit-profile-dialog-title">
-                    <!--
-     -->Edit Profile
-                    <!--
-   -->
-                </h2>
-                <div class="mdc-dialog__content" id="edit-profile-dialog-content">
-                    <div class="mdc-text-field">
-                        <input type="text" id="edit-profile-dialog-username-input" class="mdc-text-field__input"
-                            maxlength="15">
-                        <label class="mdc-floating-label" for="edit-profile-dialog-username-input">New Username</label>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                    <div class="mdc-text-field-helper-line">
-                        <div class="mdc-text-field-character-counter">0 / 15</div>
-                    </div>
-                </div>
-                <footer class="mdc-dialog__actions">
-                    <button type="button" id="edit-profile-dialog-submit-button" class="mdc-button mdc-dialog__button"
-                        data-mdc-dialog-action="yes">
-                        <span class="mdc-button__label">Done</span>
-                    </button>
-                </footer>
+    <k-body>
+        <div id="home">
+            <div id="big-banner"></div>
+            <div class="padded">
+                <h2 class="mdc-typography--headline5">2K inc</h2>
+                <p>A company making games for your pleasure.</p>
+                <p>Check out <a href="exp-game">E. X. P.</a>, a text adventure game. </p>
+                <p id="user-info"></p>
+                <a class="k-button k-rainbow" href="https://github.com/2kinc" data-size="large"
+                    aria-label="Check out @2kinc on GitHub">Check us out on GitHub!</a>
             </div>
         </div>
-        <div class="mdc-dialog__scrim"></div>
-    </div>
+        <div id="game" style="display:none;" class="padded">
+            <h2 class="mdc-typography--headline5">Games we have made</h2>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>
+                    E. X. P.
+                </k-card-title>
+                <k-card-content>
+                    Create your own world, and don't starve!
+                    Warning: contains flashing effects.
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button" href="https://2kinc.me/exp-game/">Check it out! (Pre-Alpha)</a>
+                </k-card-bottom>
+            </k-card>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>2K Space</k-card-title>
+                <k-card-content>
+                    Team up with friends and create giant pixel art on a massive global canvas.
+                    Coming soon: 2K Hyperspace. Draw pixel art and let AI link it to a website!
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button" href="https://2kinc.me/space/">Nice!</a>
+                </k-card-bottom>
+            </k-card>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>Trick or treat</k-card-title>
+                <k-card-content>
+                    Go trick or treating whenever
+                    you want on your computer!
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button"
+                        href="https://chrome.google.com/webstore/detail/trick-or-treat/migjjgahlnpolhmacicegfjdpbbnhngc">Over
+                        Here</a>
+                </k-card-bottom>
+            </k-card>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>Kalkulator</k-card-title>
+                <k-card-content>
+                    A calculator whenever you need one!
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button"
+                        href="https://chrome.google.com/webstore/detail/kalkulator/ilidgdcdnofmfpmkmbhoemmdmgkjgfcb">Get
+                        it here</a>
+                </k-card-bottom>
+            </k-card>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>Critters</k-card-title>
+                <k-card-content>
+                    Critters is a framework for fluent AI in a JS environment.
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button" href="https://2kinc.me/critters/">Cool!</a>
+                </k-card-bottom>
+            </k-card>
+            <k-card style="display: inline-block; width: 30%">
+                <k-card-title>spaghetti.js</k-card-title>
+                <k-card-content>
+                    spaghetti.js is a framework for JS strings. Use it to lock values, encrypt strings, and
+                    more!
+                </k-card-content>
+                <k-card-bottom>
+                    <a class="k-button" href="https://2kinc.me/spaghetti-js/">Yummy!</a>
+                </k-card-bottom>
+            </k-card>
+        </div>
+        <div id="about" style="display:none;" class="padded">
+            <h2 class="mdc-typography--headline5">About us</h2>
+            <p>We make games and have fun doing it! Our newest game, <a href="exp-game">E. X. P.</a>, is in pre-alpha.
+                Please pay a visit sometime soon, it will be constantly updated. All our games are free and we hope you
+                enjoy them. Our (small) army of awesome coders include: </p>
+            <ul class="mdc-list">
+                <li class="mdc-list-item" tabindex="0">
+                    <a class="mdc-list-item__text" href="https://www.github.com/iamcev">iamcev, lead developer and
+                        designer</a>
+                </li>
+                <li class="mdc-list-item">
+                    <a class="mdc-list-item__text" href="https://www.github.com/Craftingexpert1">Craftingexpert1,
+                        iamcev's
+                        second in command coder (The only one who can defeat him)</a>
+                </li>
+                <li class="mdc-list-item">
+                    <a class="mdc-list-item__text" href="https://www.github.com/Lumby1">Lumby1, duck enthusiast and
+                        expert
+                        coder in the making</span></a>
+                </li>
+                <li class="mdc-list-item">
+                    <a class="mdc-list-item__text" href="https://www.github.com/DimaTheGoat">DimaTheGoat, puffin
+                        enthusiast
+                        and another expert
+                        coder in the making. Also Director of Marketing</span></a>
+                </li>
+                <li class="mdc-list-item">
+                    <a class="mdc-list-item__text" href="https://www.github.com/MaxSteelCoolDan">MaxSteelCoolDan, Makes
+                        Steel Strong code for everybody!</span></a>
+                </li>
+            </ul>
+        </div>
+        <div id="posts" style="display: none;" class="padded">
+            <div id="posts-body"></div>
+            <div id="posts-sending">
+                <input id="post-input" class="k-input" maxlength="150" placeholder="Say something!">
+                <k-button id="submit-post-button">Send</k-button>
+            </div>
+            <div id="global-chat-disabled">
+                Sign in to 2K inc. to join the party!
+            </div>
+        </div>
+        <div id="leaderboards" class="padded" style="display: none;">
+            <h1 class="mdc-typography--headline3 centered">Trick or Treat</h1>
+            <ol class="mdc-list" id="tot-leaderboard">
+            </ol>
+        </div>
+
+        <div class="mdc-dialog" id="edit-profile-dialog" role="alertdialog" aria-modal="true"
+            aria-labelledby="edit-profile-dialog-title" aria-describedby="edit-profile-dialog-content">
+            <div class="mdc-dialog__container">
+                <div class="mdc-dialog__surface">
+                    <!-- Title cannot contain leading whitespace due to mdc-typography-baseline-top() -->
+                    <h2 class="mdc-dialog__title" id="edit-profile-dialog-title">
+                        <!--
+     -->Edit Profile
+                        <!--
+   -->
+                    </h2>
+                    <div class="mdc-dialog__content" id="edit-profile-dialog-content">
+                        <div class="mdc-text-field">
+                            <input type="text" id="edit-profile-dialog-username-input" class="mdc-text-field__input"
+                                maxlength="15">
+                            <label class="mdc-floating-label" for="edit-profile-dialog-username-input">New
+                                Username</label>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                        <div class="mdc-text-field-helper-line">
+                            <div class="mdc-text-field-character-counter">0 / 15</div>
+                        </div>
+                    </div>
+                    <footer class="mdc-dialog__actions">
+                        <button type="button" id="edit-profile-dialog-submit-button"
+                            class="mdc-button mdc-dialog__button" data-mdc-dialog-action="yes">
+                            <span class="mdc-button__label">Done</span>
+                        </button>
+                    </footer>
+                </div>
+            </div>
+            <div class="mdc-dialog__scrim"></div>
+        </div>
+    </k-body>
+
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
