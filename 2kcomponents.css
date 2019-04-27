@@ -118,6 +118,7 @@ k-button,
     -webkit-box-shadow: 0px 8px 0px 0px var(--color-secondary);
     -moz-box-shadow: 0px 8px 0px 0px var(--color-secondary);
     box-shadow: 0px 8px 0px 0px var(--color-secondary);
+    background: var(--color-main);
 }
 
 .k-button--elevated:hover {
