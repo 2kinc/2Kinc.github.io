@@ -231,18 +231,19 @@ k-tab.active,
 
 k-input,
 .k-input {
+    outline: none !important;
     border: none;
     border-bottom: 2px var(--color-secondary) solid;
     color: var(--color-secondary);
     background: var(--color-main);
+    opacity: 0.6;
     padding: 0.6em 0.5em;
     font-family: neue-haas-unica, sans-serif;
+    border-radius: 4px 4px 0 0;
 }
 
 k-input:focus,
 .k-input:focus {
-    outline: none;
-    background: var(--color-secondary);
-    color: var(--color-main);
+    opacity: 1;
     border-radius: 4px;
 }
